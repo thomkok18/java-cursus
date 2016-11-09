@@ -10,39 +10,40 @@ import java.awt.event.*;
 @SuppressWarnings("serial")
 public class Opdracht1 extends Applet {
 	TextField tekstvak;
-	Button knop, knop2;
+	Button okKnop, resetKnop;
 	Label label;
-	String s;
+	String string;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
 		tekstvak = new TextField("", 30);
 		label = new Label("Tekst");
 		add(label);
-		knop = new Button("Ok");
-		knop.addActionListener( new knopListener() );
-		add(knop);
-		knop2 = new Button("Reset");
-		knop2.addActionListener( new knop2Listener() );
+		okKnop = new Button("Ok");
+		okKnop.addActionListener( new okKnopListener() );
+		add(okKnop);
+		resetKnop = new Button("Reset");
+		resetKnop.addActionListener( new resetKnopListener() );
 		add(tekstvak);
-		add(knop2);
+		add(resetKnop);
 	}
 
 	// Een methode die de inhoud van het scherm tekent.
 	public void paint(Graphics g) {
-		g.drawString(s, 50, 60 );
+		g.drawString(string, 50, 60 );
 	}
 
-	class knopListener implements ActionListener	{
+	class okKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-			s = tekstvak.getText();
+			string = tekstvak.getText();
 			repaint();
 		}
 	}
 
-	class knop2Listener implements ActionListener	{
+	class resetKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-			s = ("");
+			string = ("");
+			tekstvak.setText("");
 			repaint();
 		}
 	}

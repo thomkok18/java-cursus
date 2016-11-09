@@ -9,100 +9,91 @@ import java.awt.event.*;
 // Een klasse met de naam Opdracht2 van het type Applet.
 @SuppressWarnings("serial")
 public class Opdracht2 extends Applet {
-	Button Man;
-	Button Vrouw;
-	Button Meisje;
-	Button Jongen;
-	Button Reset;
-	int TotaalMan = 0;
-	int TotaalVrouw = 0;
-	int TotaalMeisje = 0;
-	int TotaalJongen = 0;
-	int TotaalBezoekers = 0;
-
+	Button man, vrouw, meisje, jongen, reset;
+	int totaalMan = 0, totaalVrouw = 0, totaalMeisje = 0, totaalJongen = 0, totaalBezoekers = 0;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
 		//Schermgrootte
-		setSize(600, 500);
+		setSize(500, 300);
 
 		//Knop Man
-		Man = new Button("Man");
-		Man.addActionListener(new ManListener() );
-		add(Man);
+		man = new Button("Man");
+		man.addActionListener(new manListener() );
+		add(man);
 
 		//Knop Vrouw
-		Vrouw = new Button("Vrouw");
-		Vrouw.addActionListener(new VrouwListener() );
-		add(Vrouw);
+		vrouw = new Button("Vrouw");
+		vrouw.addActionListener(new vrouwListener() );
+		add(vrouw);
 
 		//Knop Meisje
-		Meisje = new Button("Meisje");
-		Meisje.addActionListener(new MeisjeListener() );
-		add(Meisje);
+		meisje = new Button("Meisje");
+		meisje.addActionListener(new meisjeListener() );
+		add(meisje);
 
 		//Knop Jongen
-		Jongen = new Button("Jongen");
-		Jongen.addActionListener(new JongenListener() );
-		add(Jongen);
+		jongen = new Button("Jongen");
+		jongen.addActionListener(new jongenListener() );
+		add(jongen);
 
 		//Knop Reset
-		Reset = new Button("Reset");
-		Reset.addActionListener(new ResetListener() );
-		add(Reset);
+		reset = new Button("Reset");
+		reset.addActionListener(new resetListener() );
+		add(reset);
 	}
 
 	// Een methode die de inhoud van het scherm tekent.
 	public void paint(Graphics g) {
-		g.drawString("Aantal Mannen:"+ TotaalMan, 50, 120 );
-		g.drawString("Aantal Vrouwen:"+ TotaalVrouw, 50, 140 );
-		g.drawString("Aantal Meisjes:"+ TotaalMeisje, 50, 160 );
-		g.drawString("Aantal Jongens:"+ TotaalJongen, 50, 180 );
-		g.drawString("Totaal Bezoekers:"+ TotaalBezoekers, 50, 200 );
+		g.drawString("Aantal Mannen:"+ totaalMan, 50, 120 );
+		g.drawString("Aantal Vrouwen:"+ totaalVrouw, 50, 140 );
+		g.drawString("Aantal Meisjes:"+ totaalMeisje, 50, 160 );
+		g.drawString("Aantal Jongens:"+ totaalJongen, 50, 180 );
+		g.drawString("Totaal Bezoekers:"+ totaalBezoekers, 50, 200 );
 
 	}
 
-	class ManListener implements ActionListener {
+	class manListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			TotaalMan++;
-			TotaalBezoekers++;
-			TotaalJongen++;
+			totaalMan++;
+			totaalBezoekers++;
+			totaalJongen++;
 			repaint();
 		}
 	}
 
-	class VrouwListener implements ActionListener {
+	class vrouwListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			TotaalVrouw++;
-			TotaalBezoekers++;
-			TotaalMeisje++;
+			totaalVrouw++;
+			totaalBezoekers++;
+			totaalMeisje++;
 			repaint();
 		}
 	}
 
-	class MeisjeListener implements ActionListener {
+	class meisjeListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			TotaalBezoekers++;
-			TotaalMeisje++;
+			totaalBezoekers++;
+			totaalMeisje++;
 			repaint();
 		}
 	}
 
-	class JongenListener implements ActionListener {
+	class jongenListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			TotaalBezoekers++;
-			TotaalJongen++;
+			totaalBezoekers++;
+			totaalJongen++;
 			repaint();
 		}
 	}
 
-	class ResetListener implements ActionListener {
+	class resetListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			TotaalMan = 0;
-			TotaalVrouw = 0;
-			TotaalMeisje = 0;
-			TotaalJongen = 0;
-			TotaalBezoekers = 0;
+			totaalMan = 0;
+			totaalVrouw = 0;
+			totaalMeisje = 0;
+			totaalJongen = 0;
+			totaalBezoekers = 0;
 			repaint();
 		}
 	}

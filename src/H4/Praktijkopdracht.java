@@ -9,6 +9,10 @@ import java.applet.*;
 @SuppressWarnings("serial")
 public class Praktijkopdracht extends Applet {
 
+	// Een (lege) methode die de Applet gaat initialiseren.
+	public void init() {
+		setSize(700, 300);
+	}
 	// Een methode die de inhoud van het scherm tekent.
 	public void paint(Graphics g) {
 		//Lijn

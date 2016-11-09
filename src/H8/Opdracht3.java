@@ -11,35 +11,35 @@ import java.awt.event.*;
 public class Opdracht3 extends Applet {
 	TextField tekstvak;
 	Label label;
-	Button knop1;
-	String s;
-	double BTW ;
-	double BTWuitkomst;
-	int a;
+	Button okKnop;
+	String string;
+	double btw ,btwUitkomst;
+	int ingevoerdGetal;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
-		a = 0;
-		BTW= 1.19;
+		ingevoerdGetal = 0;
+		btw = 0.21;
 		label = new Label("Inclusief BTW");
 		add(label);
-		knop1 = new Button("Ok");
-		knop1.addActionListener( new knop1Listener() );
-		add(knop1);
+		okKnop = new Button("Ok");
+		okKnop.addActionListener( new okKnopListener() );
+		add(okKnop);
 		tekstvak = new TextField("", 20);
 		add(tekstvak);
 	}
 
 	// Een methode die de inhoud van het scherm tekent.	
 	public void paint(Graphics g) {
-		g.drawString("Exclusief BTW: " + BTWuitkomst, 50, 60 );
+		g.drawString("Exclusief BTW: " + btwUitkomst, 50, 60 );
 	}
 
-	class knop1Listener implements ActionListener	{
+	class okKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-			s = tekstvak.getText();
-			a = Integer.parseInt(s);
-			BTWuitkomst = a * BTW;
+			string = tekstvak.getText();
+			ingevoerdGetal = Integer.parseInt(string);
+			btwUitkomst = ingevoerdGetal * btw;
+			tekstvak.setText("");
 			repaint();
 		}
 	}

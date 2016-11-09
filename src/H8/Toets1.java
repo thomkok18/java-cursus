@@ -5,99 +5,120 @@ package H8;
 import java.awt.*;
 import java.applet.*;
 import java.awt.event.*;
+import java.text.DecimalFormat;
 
 // Een klasse met de naam Praktijkopdracht van het type Applet.
 @SuppressWarnings("serial")
 public class Toets1 extends Applet {
-	Button knop1;
-	Button knop2; 
-	Button knop3;
-	Button knop4;
-	Button knop5;
-	Button knop6;
-	Button knop7;
-	double bedrag, teller = 1, bestellingswaarde, dagomzet;
+	Button frisKnop, bierKnop, wijnKnop, koffieKnop, binDistKnop, buitDistKnop, nieuweBestelligKnop;
+	double bedrag, bestellingswaarde, dagomzet;
+	int frisBestelling, bierBestelling, wijnBestelling, koffieBestelling, binDistBestelling, buitDistBestelling, bestelling;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
-		setSize(400, 500);
-		knop1 = new Button("Fris");
-		knop1.addActionListener( new knop1Listener() );
-		add(knop1);
-		knop2 = new Button("Bier");
-		knop2.addActionListener( new knop2Listener() );
-		add(knop2);
-		knop3 = new Button("Wijn");
-		knop3.addActionListener( new knop3Listener() );
-		add(knop3);
-		knop4 = new Button("Koffie");
-		knop4.addActionListener( new knop4Listener() );
-		add(knop4);
-		knop5 = new Button("BinDist");
-		knop5.addActionListener( new knop5Listener() );
-		add(knop5);
-		knop6 = new Button("BuitDist");
-		knop6.addActionListener( new knop6Listener() );
-		add(knop6);
-		knop7 = new Button("Nieuwe Bestelling");
-		knop7.addActionListener( new knop7Listener() );
-		add(knop7);
+
+		setSize(400, 300);
+		frisBestelling = 0;
+		bierBestelling = 0;
+		wijnBestelling = 0;
+		koffieBestelling = 0;
+		binDistBestelling = 0;
+		buitDistBestelling = 0;
+		frisKnop = new Button("Fris");
+		frisKnop.addActionListener( new frisKnopListener() );
+		add(frisKnop);
+		bierKnop = new Button("Bier");
+		bierKnop.addActionListener( new bierKnopListener() );
+		add(bierKnop);
+		wijnKnop = new Button("Wijn");
+		wijnKnop.addActionListener( new wijnKnopListener() );
+		add(wijnKnop);
+		koffieKnop = new Button("Koffie");
+		koffieKnop.addActionListener( new koffieKnopListener() );
+		add(koffieKnop);
+		binDistKnop = new Button("BinDist");
+		binDistKnop.addActionListener( new binDistKnopListener() );
+		add(binDistKnop);
+		buitDistKnop = new Button("BuitDist");
+		buitDistKnop.addActionListener( new buitDistKnopListener() );
+		add(buitDistKnop);
+		nieuweBestelligKnop = new Button("Nieuwe Bestelling");
+		nieuweBestelligKnop.addActionListener( new nieuweBestelligKnopListener() );
+		add(nieuweBestelligKnop);
 	}
 
 	// Een methode die de inhoud van het scherm tekent.	
 	public void paint(Graphics g) {
-		g.drawString("Bestelling totaal: " + bestellingswaarde, 50, 100 );
-		g.drawString("Totaal dagomzet: " + dagomzet, 50, 120 );
+		g.drawString("Aantal fris: " + frisBestelling, 50, 80 );
+		g.drawString("Aantal bier: " + bierBestelling, 50, 100 );
+		g.drawString("Aantal wijn: " + wijnBestelling, 50, 120 );
+		g.drawString("Aantal koffie: " + koffieBestelling, 50, 140 );
+		g.drawString("Aantal BinDist: " + binDistBestelling, 50, 160 );
+		g.drawString("Aantal BuitDist: " + buitDistBestelling, 50, 180 );
+		g.drawString("Bestelling totaal: " + String.format("€ %.2f", bestellingswaarde), 50, 200 );
+		g.drawString("Totaal dagomzet: " + String.format("€ %.2f", dagomzet), 50, 220 );
 	}
 
-	class knop1Listener implements ActionListener	{
+	class frisKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			bedrag = 2.00;
-			bestellingswaarde = bedrag * teller++;
+			frisBestelling++;
+			bestellingswaarde = bedrag * frisBestelling;
 			repaint();
 		}
 	}
-	class knop2Listener implements ActionListener	{
+	class bierKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			bedrag = 2.25;
-			bestellingswaarde = bedrag * teller++;
+			bierBestelling++;
+			bestellingswaarde = bedrag * bierBestelling;
 			repaint();
 		}
 	}
-	class knop3Listener implements ActionListener	{
+	class wijnKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			bedrag = 2.50;
-			bestellingswaarde = bedrag * teller++;
+			wijnBestelling++;
+			bestellingswaarde = bedrag * wijnBestelling;
 			repaint();
 		}
 	}
-	class knop4Listener implements ActionListener	{
+	class koffieKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			bedrag = 1.75;
-			bestellingswaarde = bedrag * teller++;
+			koffieBestelling++;
+			bestellingswaarde = bedrag * koffieBestelling;
 			repaint();
 		}
 	}
-	class knop5Listener implements ActionListener	{
+	class binDistKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			bedrag = 2.75;
-			bestellingswaarde = bedrag * teller++;
+			binDistBestelling++;
+			bestellingswaarde = bedrag * binDistBestelling;
 			repaint();
 		}
 	}
-	class knop6Listener implements ActionListener	{
+	class buitDistKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			bedrag = 3.50;
-			bestellingswaarde = bedrag * teller++;
+			buitDistBestelling++;
+			bestellingswaarde = bedrag * buitDistBestelling;
 			repaint();
 		}
 	}
-	class knop7Listener implements ActionListener	{
+	class nieuweBestelligKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-			bestellingswaarde = bedrag * teller;
+			bestellingswaarde = bedrag * bestelling;
 			dagomzet = bestellingswaarde + dagomzet;
+			frisBestelling = 0;
+			bierBestelling = 0;
+			wijnBestelling = 0;
+			koffieBestelling = 0;
+			binDistBestelling = 0;
+			buitDistBestelling = 0;
 			bestellingswaarde = 0;
-			teller = 1;
+			bestelling = 0;
 			repaint();
 		}
 	}

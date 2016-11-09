@@ -8,18 +8,17 @@ import java.applet.*;
 // Een klasse met de naam Opdracht3 van het type Applet.
 @SuppressWarnings("serial")
 public class Opdracht3 extends Applet {
-	int a, b;
-	int uitkomst;
+	int eersteInt, tweedeInt, negatieveInt;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
-		a = 1124242324;
-		b = 1023241324;
-		uitkomst = a+b;
+		eersteInt = 1124242324;
+		tweedeInt = 1023241324;
+		negatieveInt = eersteInt+tweedeInt;
 	}
 
 	// Een methode die de inhoud van het scherm tekent.
 	public void paint(Graphics g) {
-		g.drawString("De uitkomst is: " + uitkomst, 20, 20);
+		g.drawString("De uitkomst is: " + negatieveInt, 20, 20);
 	}
 }

@@ -8,17 +8,17 @@ import java.applet.*;
 // Een klasse met de naam Opdracht2 van het type Applet.
 @SuppressWarnings("serial")
 public class Opdracht2 extends Applet {
-	int a, b, c;
+	int minuut, dagUren, jaarDagen;
 	int uur, dag, jaar;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
-		a = 60;
-		b = 24;
-		c = 365;
-		uur = a * a;
-		dag = uur * b;
-		jaar = dag * c;
+		minuut = 60;
+		dagUren = 24;
+		jaarDagen = 365;
+		uur = minuut * minuut;
+		dag = uur * dagUren;
+		jaar = dag * jaarDagen;
 	}
 
 	// Een methode die de inhoud van het scherm tekent.

@@ -8,13 +8,13 @@ import java.applet.*;
 // Een klasse met de naam Opdracht1 van het type Applet.
 @SuppressWarnings("serial")
 public class Opdracht1 extends Applet {
-	double a, b, uitkomst;
+	double euro, aantalPersonen, uitkomst;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
-		a = 113;
-		b = 4;
-		uitkomst = a / b;
+		euro = 113;
+		aantalPersonen = 4;
+		uitkomst = euro / aantalPersonen;
 	}
 
 	// Een methode die de inhoud van het scherm tekent.
