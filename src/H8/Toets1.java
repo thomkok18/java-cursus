@@ -12,11 +12,10 @@ import java.text.DecimalFormat;
 public class Toets1 extends Applet {
 	Button frisKnop, bierKnop, wijnKnop, koffieKnop, binDistKnop, buitDistKnop, nieuweBestelligKnop;
 	double bedrag, bestellingswaarde, dagomzet;
-	int frisBestelling, bierBestelling, wijnBestelling, koffieBestelling, binDistBestelling, buitDistBestelling, bestelling;
+	int frisBestelling, bierBestelling, wijnBestelling, koffieBestelling, binDistBestelling, buitDistBestelling;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
-
 		setSize(400, 300);
 		frisBestelling = 0;
 		bierBestelling = 0;
@@ -109,7 +108,6 @@ public class Toets1 extends Applet {
 	}
 	class nieuweBestelligKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-			bestellingswaarde = bedrag * bestelling;
 			dagomzet = bestellingswaarde + dagomzet;
 			frisBestelling = 0;
 			bierBestelling = 0;
@@ -118,10 +116,7 @@ public class Toets1 extends Applet {
 			binDistBestelling = 0;
 			buitDistBestelling = 0;
 			bestellingswaarde = 0;
-			bestelling = 0;
 			repaint();
 		}
 	}
 }
-
-//Opmerking: krijg niet voor elkaar de teller op te lossen...

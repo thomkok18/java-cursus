@@ -10,47 +10,46 @@ import java.awt.event.*;
 @SuppressWarnings("serial")
 public class Opdracht5 extends Applet {
 	TextField Tekstvak;
-	String Tekst1, Tekst2, Tekst3;
-	Button Knop;
+	String beoordeling, geslaagd;
+	Button okKnop;
 	double getal, cijfer, gemiddelde;
-	int teller;
+	int aantalCijfers;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
 		setSize(600, 500);
-		Knop = new Button("Ok");
-		Knop.addActionListener( new knop1Listener() );
-		add(Knop);
+		okKnop = new Button("Ok");
+		okKnop.addActionListener( new okKnopListener() );
+		add(okKnop);
 		Tekstvak = new TextField("", 20);
 		add(Tekstvak);
 	}
 
 	// Een methode die de inhoud van het scherm tekent.	
 	public void paint(Graphics g) {
-		g.drawString(Tekst1, 50, 60 );
-		g.drawString(Tekst2, 50, 80 );
-		g.drawString(Tekst3, 50, 100 );
+		g.drawString(beoordeling, 50, 60 );
+		g.drawString(geslaagd, 50, 80 );
 
 	}
 
-	class knop1Listener implements ActionListener	{
+	class okKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			cijfer = Double.parseDouble(Tekstvak.getText());
-			teller++;
+			aantalCijfers++;
 			getal =  cijfer + getal;
-			gemiddelde = getal / teller;
+			gemiddelde = getal / aantalCijfers;
 			Tekstvak.setText("");
 			if (gemiddelde > 5.5){
-				Tekst2 = gemiddelde + " Je bent geslaagd!";
+				geslaagd = gemiddelde + " Je bent geslaagd!";
 			}
 			if (gemiddelde < 5.5){
-				Tekst2 = gemiddelde + " Je bent gezakt.";
+				geslaagd = gemiddelde + " Je bent gezakt.";
 			}
 			if (cijfer > 5.5){
-				Tekst1 = cijfer + " Voldoende";
+				beoordeling = cijfer + " Voldoende";
 			}
 			if (cijfer < 5.5){
-				Tekst1 = cijfer + " Onvoldoende";
+				beoordeling = cijfer + " Onvoldoende";
 			}
 			if (cijfer > 10){
 				cijfer = 10;

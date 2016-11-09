@@ -10,90 +10,91 @@ import java.awt.event.*;
 @SuppressWarnings("serial")
 public class Opdracht3 extends Applet {
 	TextField tekstvak;
-	Button knop;
+	Button okKnop;
 	int Getal;
-	String Dagen;
-	String Maandnaam;
+	String Dagen, maandNaam;
 	Label label;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
+		setSize(500, 100);
 		label = new Label("Voer het maandgetal in");
 		add(label);
 		tekstvak = new TextField("", 30);
 		add(tekstvak);
-		knop = new Button("Ok");
-		knop.addActionListener( new knopListener() );
-		add(knop);
+		okKnop = new Button("Ok");
+		okKnop.addActionListener( new okKnopListener() );
+		add(okKnop);
 	}
 
 	// Een methode die de inhoud van het scherm tekent.
 	public void paint(Graphics g) {
 		if (Getal > 0) {
-			g.drawString("Maand: " + Maandnaam, 50, 60 );	
+			g.drawString("Maand: " + maandNaam, 50, 60 );
 			g.drawString("Aantal dagen: " + Dagen, 50, 80 );
 		}
 	}
 
-	class knopListener implements ActionListener	{
+	class okKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 
 			String TekstvakGetal = tekstvak.getText();
 			Getal = Integer.parseInt(TekstvakGetal);
 			switch(Getal){
 			case 1:
-				Maandnaam = "januari";
+				maandNaam = "januari";
 				Dagen = "31";
 				break;
 			case 2:
-				Maandnaam = "februari";
+				maandNaam = "februari";
 				Dagen = "28";
 				break;
 			case 3:
-				Maandnaam = "maart";
+				maandNaam = "maart";
 				Dagen = "31";
 				break;
 			case 4:
-				Maandnaam = "april";
+				maandNaam = "april";
 				Dagen = "30";
 				break;
 			case 5:
-				Maandnaam = "mei";
+				maandNaam = "mei";
 				Dagen = "31";
 				break;
 			case 6:
-				Maandnaam = "juni";
+				maandNaam = "juni";
 				Dagen = "30";
 				break;
 			case 7:
-				Maandnaam = "juli";
+				maandNaam = "juli";
 				Dagen = "31";
 				break;
 			case 8:
-				Maandnaam = "augustus";
+				maandNaam = "augustus";
 				Dagen = "30";
 				break;
 			case 9:
-				Maandnaam = "september";
+				maandNaam = "september";
 				Dagen = "31";
 				break;
 			case 10:
-				Maandnaam = "oktober";
+				maandNaam = "oktober";
 				Dagen = "30";
 				break;
 			case 11:
-				Maandnaam = "november";
+				maandNaam = "november";
 				Dagen = "31";
 				break;
 			case 12:
-				Maandnaam = "december";
+				maandNaam = "december";
 				Dagen = "30";
 				break;
 			default:
-				Maandnaam = "U hebt een verkeerd nummer ingetikt!";
+				maandNaam = "U hebt een verkeerd nummer ingetikt!";
 				Dagen = "0";
 				break;
 			}
+			tekstvak.setText("");
 			repaint();
 		}
 	}

@@ -10,50 +10,71 @@ import java.awt.event.*;
 @SuppressWarnings("serial")
 public class Toets extends Applet {
 	TextField tekstvak;
-	int London, NewYork, Tokyo, Sydney;
+	int london, newyork, tokyo, sydney, cijfer;
 	Label label;
-	Button knop;
+	Button tijdenKnop;
+	boolean foutmelding;
+	String error;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
-		setSize(600, 500);
+		london = 0;
+		newyork = 0;
+		tokyo = 0;
+		sydney = 0;
+		cijfer = 0;
+		error = "";
+		foutmelding = false;
+		cijfer = 0;
+		setSize(400, 500);
 		label = new Label("Voer een uur in");
-		add (label);
-		knop = new Button("Toon tijden");
-		knop.addActionListener( new knop1Listener() );
-		add(knop);
-		tekstvak = new TextField("", 20);
+		add(label);
+		tijdenKnop = new Button("Toon tijden");
+		tijdenKnop.addActionListener( new tijdenKnopListener() );
+		add(tijdenKnop);
+		tekstvak = new TextField("", 5);
 		add(tekstvak);
 	}
 
 	// Een methode die de inhoud van het scherm tekent.	
 	public void paint(Graphics g) {
-		g.drawString("Tijd in London: " +London +":00", 50, 60 );
-		g.drawString("Tijd in New York: " +NewYork +":00", 50, 80 );
-		g.drawString("Tijd in Tokyo: " +Tokyo +":00", 50, 100 );
-		g.drawString("Tijd in Sydney: " +Sydney +":00", 50, 120 );
-
+		if (foutmelding = false) {
+			g.drawString("Tijd in London: " + london + ":00", 50, 60);
+			g.drawString("Tijd in New York: " + newyork + ":00", 50, 80);
+			g.drawString("Tijd in Tokyo: " + tokyo + ":00", 50, 100);
+			g.drawString("Tijd in Sydney: " + sydney + ":00", 50, 120);
+		} else {
+			g.drawString("" + error, 50, 60);
+			foutmelding = false;
+		}
 	}
 
-	class knop1Listener implements ActionListener	{
+	class tijdenKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-			int cijfer = Integer.parseInt(tekstvak.getText());
+			cijfer = Integer.parseInt(tekstvak.getText());
 			if(cijfer <= 24 && cijfer >= 0){
-				London = cijfer - 1;
-				NewYork = cijfer - 5;
-				Tokyo = cijfer + 9;
-				Sydney = cijfer + 12;
+				london = cijfer - 1;
+				newyork = cijfer - 5;
+				tokyo = cijfer + 9;
+				sydney = cijfer + 12;
 				if (cijfer <= 0){
-					London += 24;
+					london += 24;
 				}
 				if (cijfer <= 4){
-					NewYork += 24;
+					newyork += 24;
 				}
-				if (Tokyo >= 24){
-					Tokyo -= 24;
+				if (tokyo >= 24){
+					tokyo -= 24;
 				}
-				if (Sydney >= 24){
-					Sydney -= 24;
+				if (sydney >= 24){
+					sydney -= 24;
+				}
+				if (cijfer < 0 || cijfer > 24) {
+					foutmelding = true;
+				}
+				if (cijfer < 0 || cijfer > 24) {
+					foutmelding = true;
+					error = "Voer een geldig getal in.";
 				}
 			}
 			tekstvak.setText("");

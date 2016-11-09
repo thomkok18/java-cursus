@@ -11,40 +11,43 @@ import java.awt.event.*;
 public class Opdracht2 extends Applet {
 	TextField tekstvak;
 	Button knop;
-	int Hoogstegetal;
-	int Laagstegetal;
-	int Getal;
+	int hoogsteGetal, laagsteGetal, getal;
+	boolean geklikt;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
+		hoogsteGetal = 0;
+		laagsteGetal = 0;
+		getal = 0;
+		geklikt = false;
 		tekstvak = new TextField("", 30);
 		add(tekstvak);
 		knop = new Button("Ok");
 		knop.addActionListener( new knopListener() );
 		add(knop);
-		Laagstegetal = 2147483647;
 	}
 
 	// Een methode die de inhoud van het scherm tekent.
 	public void paint(Graphics g) {
-		if (Getal > 0) {
-			g.drawString("Hoogste Getal: " + Hoogstegetal, 50, 60 );	
-			g.drawString("Laagste Getal: " + Laagstegetal, 50, 80 );
-		}
+			g.drawString("Hoogste Getal: " + hoogsteGetal, 50, 60 );
+			g.drawString("Laagste Getal: " + laagsteGetal, 50, 80 );
 	}
 
 	class knopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-
 			String TekstvakGetal = tekstvak.getText();
-			Getal = Integer.parseInt(TekstvakGetal);
-
-			if ( Getal > Hoogstegetal ) {
-				Hoogstegetal = Getal;
+			getal = Integer.parseInt(TekstvakGetal);
+			if (getal > hoogsteGetal && getal != Integer.MAX_VALUE && getal < Integer.MAX_VALUE) {
+				hoogsteGetal = getal;
 			}
-			if ( Getal < Laagstegetal) {
-				Laagstegetal = Getal;
+			if (getal < laagsteGetal && getal != Integer.MIN_VALUE && getal > Integer.MIN_VALUE) {
+				laagsteGetal = getal;
 			}
+			if (geklikt == false) {
+				laagsteGetal = hoogsteGetal;
+			}
+			tekstvak.setText("");
+			geklikt = true;
 			repaint();
 		}
 	}

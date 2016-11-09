@@ -10,31 +10,31 @@ import java.awt.event.*;
 @SuppressWarnings("serial")
 public class Opdracht1 extends Applet {
 	TextField tekstvak;
-	Button knop;
-	int Hoogstegetal;
+	Button okKnop;
+	int hoogstegetal;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
 		tekstvak = new TextField("", 30);
 		add(tekstvak);
-		knop = new Button("Ok");
-		knop.addActionListener( new knopListener() );
-		add(knop);
+		okKnop = new Button("Ok");
+		okKnop.addActionListener( new okKnopListener() );
+		add(okKnop);
 	}
 
 	// Een methode die de inhoud van het scherm tekent.
 	public void paint(Graphics g) {
-		g.drawString("Hoogste Getal: " + Hoogstegetal, 50, 60 );
+		g.drawString("Hoogste Getal: " + hoogstegetal, 50, 60 );
 	}
 
-	class knopListener implements ActionListener	{
+	class okKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-
-			String TekstvakGetal = tekstvak.getText();
-			int Getal = Integer.parseInt(TekstvakGetal);
-			if ( Getal > Hoogstegetal ) {
-				Hoogstegetal = Getal;
+			String tekstvakGetal = tekstvak.getText();
+			int getal = Integer.parseInt(tekstvakGetal);
+			if ( getal > hoogstegetal ) {
+				hoogstegetal = getal;
 			}
+			tekstvak.setText("");
 			repaint();
 		}
 	}
