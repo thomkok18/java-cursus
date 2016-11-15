@@ -11,16 +11,16 @@ public class Opdracht5 extends Applet {
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
-		setSize(200, 500);
+		setSize(200, 200);
 	}
 
 	// Een methode die de inhoud van het scherm tekent.	
 	public void paint(Graphics g) {
-		int x = 20, y = 20;
-		for (int teller = 0; teller < 5; teller++){
-			g.drawRect(x, y, 20, 20);
-			x += 20;
-			y += 20;
+		int xCoordinaat = 20, yCoordinaat = 20, aantalVierkanten = 5;
+		for (int vierkantje = 0; vierkantje < aantalVierkanten; vierkantje++){
+			g.drawRect(xCoordinaat, yCoordinaat, 20, 20);
+			xCoordinaat += 20;
+			yCoordinaat += 20;
 		}
 	}
 }

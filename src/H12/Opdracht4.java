@@ -9,29 +9,30 @@ import java.applet.*;
 @SuppressWarnings("serial")
 public class Opdracht4 extends Applet {
 	boolean gevonden;
-	double[] salaris = { 100.0, 200.0, 500.0, 400.0, 300.0 }; 
-	double gezocht;
+	int[] salaris = {100, 200, 500, 400, 300};
+	int vind;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
-		gezocht = 400;
+		setSize(300,100);
+		vind = 400;
 		gevonden = false;
-		int teller = 0;
-		while(teller < salaris.length) {
-			if(salaris[teller] == gezocht) {
+		int index = 0;
+		while(index < salaris.length) {
+			if(salaris[index] == vind) {
 				gevonden = true;
 				break;
 			}
-			teller ++;
+			index++;
 		}
 	}
 
 	public void paint(Graphics g) {
 		if(gevonden == true) {
-			g.drawString("De waarde is gevonden.", 20, 50);
+			g.drawString("De waarde " + vind + " is gevonden.", 20, 50);
 		}
 		else {
-			g.drawString("De waarde is niet gevonden.", 20, 50);
+			g.drawString("De waarde " + vind + " is niet gevonden.", 20, 50);
 		}
 	}
 }

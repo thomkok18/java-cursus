@@ -8,7 +8,7 @@ import java.awt.event.*;
 
 // Een klasse met de naam Knop van het type Applet.
 @SuppressWarnings("serial")
-public class Praktijkopdracht extends Applet {
+public class PraktijkOpdracht extends Applet {
 	TextField tekstvak1, tekstvak2;
 	Button keerKnop, deelKnop, plusKnop, minKnop;
 	double invoerGetal1, invoerGetal2, antwoord;
@@ -17,16 +17,16 @@ public class Praktijkopdracht extends Applet {
 	public void init() {
 		setSize(500, 100);
 		keerKnop = new Button("*");
-		keerKnop.addActionListener( new keerKnopListener() );
+		keerKnop.addActionListener( new KeerKnopListener() );
 		add(keerKnop);
 		deelKnop = new Button("/");
-		deelKnop.addActionListener( new deelKnopListener() );
+		deelKnop.addActionListener( new DeelKnopListener() );
 		add(deelKnop);
 		plusKnop = new Button("+");
-		plusKnop.addActionListener( new plusKnopListener() );
+		plusKnop.addActionListener( new PlusKnopListener() );
 		add(plusKnop);
 		minKnop = new Button("-");
-		minKnop.addActionListener( new minKnopListener() );
+		minKnop.addActionListener( new MinKnopListener() );
 		add(minKnop);
 		tekstvak1 = new TextField("", 20);
 		add(tekstvak1);
@@ -34,7 +34,7 @@ public class Praktijkopdracht extends Applet {
 		add(tekstvak2);
 	}
 
-	class keerKnopListener implements ActionListener	{
+	class KeerKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			invoerGetal1 = Double.parseDouble(tekstvak1.getText());
 			invoerGetal2 = Double.parseDouble(tekstvak2.getText());
@@ -43,7 +43,7 @@ public class Praktijkopdracht extends Applet {
 			repaint();
 		}
 	}
-	class deelKnopListener implements ActionListener	{
+	class DeelKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			invoerGetal1 = Double.parseDouble(tekstvak1.getText());
 			invoerGetal2 = Double.parseDouble(tekstvak2.getText());
@@ -51,7 +51,7 @@ public class Praktijkopdracht extends Applet {
 			tekstvak1.setText("" + antwoord);
 		}
 	}
-	class plusKnopListener implements ActionListener	{
+	class PlusKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			invoerGetal1 = Double.parseDouble(tekstvak1.getText());
 			invoerGetal2 = Double.parseDouble(tekstvak2.getText());
@@ -59,7 +59,7 @@ public class Praktijkopdracht extends Applet {
 			tekstvak1.setText("" + antwoord);
 		}
 	}
-	class minKnopListener implements ActionListener	{
+	class MinKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			invoerGetal1 = Double.parseDouble(tekstvak1.getText());
 			invoerGetal2 = Double.parseDouble(tekstvak2.getText());

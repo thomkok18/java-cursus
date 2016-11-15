@@ -19,7 +19,7 @@ public class Opdracht5 extends Applet {
 	public void init() {
 		setSize(600, 500);
 		okKnop = new Button("Ok");
-		okKnop.addActionListener( new okKnopListener() );
+		okKnop.addActionListener( new OkKnopListener() );
 		add(okKnop);
 		Tekstvak = new TextField("", 20);
 		add(Tekstvak);
@@ -32,7 +32,7 @@ public class Opdracht5 extends Applet {
 
 	}
 
-	class okKnopListener implements ActionListener	{
+	class OkKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			cijfer = Double.parseDouble(Tekstvak.getText());
 			aantalCijfers++;

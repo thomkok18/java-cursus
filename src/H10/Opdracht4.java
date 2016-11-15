@@ -34,7 +34,7 @@ public class Opdracht4 extends Applet {
 		jaarTekstvak = new TextField("", 30);
 		add(jaarTekstvak);
 		okKnop = new Button("Ok");
-		okKnop.addActionListener( new okKnopListener() );
+		okKnop.addActionListener( new OkKnopListener() );
 		add(okKnop);
 	}
 
@@ -49,7 +49,7 @@ public class Opdracht4 extends Applet {
 			foutmelding = false;
 		}
 	}
-	class okKnopListener implements ActionListener	{
+	class OkKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			String jaarTekstvakGetal = jaarTekstvak.getText();
 			jaartal = Integer.parseInt(jaarTekstvakGetal);

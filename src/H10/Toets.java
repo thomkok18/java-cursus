@@ -23,14 +23,13 @@ public class Toets extends Applet {
 		tokyo = 0;
 		sydney = 0;
 		cijfer = 0;
-		error = "";
-		foutmelding = false;
 		cijfer = 0;
+		error = "";
 		setSize(400, 500);
 		label = new Label("Voer een uur in");
 		add(label);
 		tijdenKnop = new Button("Toon tijden");
-		tijdenKnop.addActionListener( new tijdenKnopListener() );
+		tijdenKnop.addActionListener( new TijdenKnopListener() );
 		add(tijdenKnop);
 		tekstvak = new TextField("", 5);
 		add(tekstvak);
@@ -38,18 +37,19 @@ public class Toets extends Applet {
 
 	// Een methode die de inhoud van het scherm tekent.	
 	public void paint(Graphics g) {
-		if (foutmelding = false) {
+		if (foutmelding == false) {
 			g.drawString("Tijd in London: " + london + ":00", 50, 60);
 			g.drawString("Tijd in New York: " + newyork + ":00", 50, 80);
 			g.drawString("Tijd in Tokyo: " + tokyo + ":00", 50, 100);
 			g.drawString("Tijd in Sydney: " + sydney + ":00", 50, 120);
-		} else {
+		}
+		if (foutmelding == true) {
 			g.drawString("" + error, 50, 60);
 			foutmelding = false;
 		}
 	}
 
-	class tijdenKnopListener implements ActionListener	{
+	class TijdenKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			cijfer = Integer.parseInt(tekstvak.getText());
 			if(cijfer <= 24 && cijfer >= 0){
@@ -72,10 +72,9 @@ public class Toets extends Applet {
 				if (cijfer < 0 || cijfer > 24) {
 					foutmelding = true;
 				}
-				if (cijfer < 0 || cijfer > 24) {
-					foutmelding = true;
-					error = "Voer een geldig getal in.";
-				}
+			} else {
+				foutmelding = true;
+				error = "Voer een geldig getal in.";
 			}
 			tekstvak.setText("");
 			repaint();

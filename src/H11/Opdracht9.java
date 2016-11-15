@@ -3,44 +3,51 @@ package H11;
 
 //Importeer de benodigde klassen uit de Java bibliotheek.
 import java.applet.Applet;
-import java.awt.Graphics;
+import java.awt.*;
 
 //Een klasse met de naam Opdracht10 van het type Applet.
 @SuppressWarnings("serial")
-public class Opdracht9 extends Applet{
-	int zwartebox, wittebox;
+public class Opdracht9 extends Applet {
 
 	//Een (lege) methode die de Applet gaat initialiseren. 
-	public void init(){
-		setSize(300,300);
-		zwartebox = 20;
-		wittebox = 19;
+	public void init() {
+		setSize(300, 300);
 	}
 
 	//Een methode die de inhoud van het scherm tekent.	 
-	public void paint(Graphics g){
-		for(int vier = 0; vier < 4; vier++){
-			int y = 50;
-			for(int twee = 0; twee < 4; twee++){
-				int x = 50;
-				for(int evenrij = 0; evenrij < 4; evenrij++){
-					g.drawRect(x, y, wittebox, wittebox); x += wittebox;
-					g.fillRect(x, y, zwartebox, zwartebox); x += zwartebox;
+	public void paint(Graphics g) {
+		int x, y = 50, breedte = 20, hoogte = 20;
+		setBackground(Color.gray);
+
+		for (int i = 0; i < 4; i++) {
+
+			x = 50;
+			y += hoogte;
+
+			for (int kolom = 0; kolom < 8; kolom++) {
+				if (kolom == 0 || kolom == 2 || kolom == 4 || kolom == 6) {
+					g.setColor(Color.black);
+					g.fillRect(x, y, breedte, hoogte);
+				} else {
+					g.setColor(Color.white);
+					g.fillRect(x, y, breedte, hoogte);
 				}
-				y += zwartebox + wittebox;
-				x = 50;
+				x += breedte;
 			}
 
-			y -= (20+19+20+19+20+19+20);
+			x = 50;
+			y += hoogte;
 
-			for(int twee = 0; twee < 4; twee++){
-				int x = 50;
-				for(int onevenrij = 0; onevenrij < 4; onevenrij++){
-					g.fillRect(x, y, zwartebox, zwartebox); x += zwartebox;
-					g.drawRect(x, y, wittebox, wittebox); x += wittebox;
+			for (int kolom = 0; kolom < 8; kolom++) {
+				if (kolom == 0 || kolom == 2 || kolom == 4 || kolom == 6) {
+					g.setColor(Color.white);
+					g.fillRect(x, y, breedte, hoogte);
+				} else {
+					g.setColor(Color.black);
+					g.fillRect(x, y, breedte, hoogte);
+
 				}
-				y += wittebox + zwartebox;
-				x = 50;
+				x += breedte;
 			}
 		}
 	}

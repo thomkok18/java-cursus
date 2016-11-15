@@ -23,7 +23,7 @@ public class Opdracht3 extends Applet {
 		tekstvak = new TextField("", 30);
 		add(tekstvak);
 		okKnop = new Button("Ok");
-		okKnop.addActionListener( new okKnopListener() );
+		okKnop.addActionListener( new OkKnopListener() );
 		add(okKnop);
 	}
 
@@ -35,7 +35,7 @@ public class Opdracht3 extends Applet {
 		}
 	}
 
-	class okKnopListener implements ActionListener	{
+	class OkKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 
 			String TekstvakGetal = tekstvak.getText();

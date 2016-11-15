@@ -16,13 +16,13 @@ public class Opdracht7 extends Applet {
 
 	// Een methode die de inhoud van het scherm tekent.	
 	public void paint(Graphics g) {
-		int x = 500, y = 500, l = 10, b = 10;
-		for (int teller = 0; teller < 50; teller++){
-			g.drawOval(x, y, l, b);
-			x -= 5;
-			y -= 5;
-			l += 10;
-			b += 10;
+		int xCoordinaat = 500, yCoordinaat = 500, aantalCirkels = 50, lengte = 10, breedte = 10;
+		for (int teller = 0; teller < aantalCirkels; teller++){
+			g.drawOval(xCoordinaat, yCoordinaat, breedte, lengte);
+			xCoordinaat -= 5;
+			yCoordinaat -= 5;
+			lengte += 10;
+			breedte += 10;
 		}
 	}
 }

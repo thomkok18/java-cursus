@@ -19,27 +19,27 @@ public class Opdracht2 extends Applet {
 
 		//Knop Man
 		man = new Button("Man");
-		man.addActionListener(new manListener() );
+		man.addActionListener(new ManListener() );
 		add(man);
 
 		//Knop Vrouw
 		vrouw = new Button("Vrouw");
-		vrouw.addActionListener(new vrouwListener() );
+		vrouw.addActionListener(new VrouwListener() );
 		add(vrouw);
 
 		//Knop Meisje
 		meisje = new Button("Meisje");
-		meisje.addActionListener(new meisjeListener() );
+		meisje.addActionListener(new MeisjeListener() );
 		add(meisje);
 
 		//Knop Jongen
 		jongen = new Button("Jongen");
-		jongen.addActionListener(new jongenListener() );
+		jongen.addActionListener(new JongenListener() );
 		add(jongen);
 
 		//Knop Reset
 		reset = new Button("Reset");
-		reset.addActionListener(new resetListener() );
+		reset.addActionListener(new ResetListener() );
 		add(reset);
 	}
 
@@ -53,7 +53,7 @@ public class Opdracht2 extends Applet {
 
 	}
 
-	class manListener implements ActionListener {
+	class ManListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			totaalMan++;
 			totaalBezoekers++;
@@ -62,7 +62,7 @@ public class Opdracht2 extends Applet {
 		}
 	}
 
-	class vrouwListener implements ActionListener {
+	class VrouwListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			totaalVrouw++;
 			totaalBezoekers++;
@@ -71,7 +71,7 @@ public class Opdracht2 extends Applet {
 		}
 	}
 
-	class meisjeListener implements ActionListener {
+	class MeisjeListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			totaalBezoekers++;
 			totaalMeisje++;
@@ -79,7 +79,7 @@ public class Opdracht2 extends Applet {
 		}
 	}
 
-	class jongenListener implements ActionListener {
+	class JongenListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			totaalBezoekers++;
 			totaalJongen++;
@@ -87,7 +87,7 @@ public class Opdracht2 extends Applet {
 		}
 	}
 
-	class resetListener implements ActionListener {
+	class ResetListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			totaalMan = 0;
 			totaalVrouw = 0;

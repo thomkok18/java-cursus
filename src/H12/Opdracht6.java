@@ -10,36 +10,35 @@ import java.awt.event.*;
 @SuppressWarnings("serial")
 public class Opdracht6 extends Applet {
 	boolean gevonden;
-	double[] salaris = { 100.0, 200.0, 500.0, 400.0, 300.0, 400.0, 500.0, 200.0, 400.0, 500.0 };
-	double gezocht;
-	int salarisaantal;
-	Button Ok;
+	int[] salaris = {100, 200, 500, 400, 300, 400, 500, 200, 400, 500};
+	int vind, salarisaantal;
+	Button okKnop;
 	TextField tekstvak;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
 		setSize(400,200);
 		salarisaantal = 0;
-		gezocht = 0;
+		vind = 0;
 		gevonden = false;
-		Ok = new Button("Ok");
-		add(Ok);
-		Ok.addActionListener( new OkListener());
-		tekstvak = new TextField("", 20);
+		okKnop = new Button("Ok");
+		add(okKnop);
+		okKnop.addActionListener( new OkKnopListener());
+		tekstvak = new TextField("", 10);
 		add(tekstvak);
 	}
 
-	class OkListener implements ActionListener	{
+	class OkKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-			String s = tekstvak.getText();
-			gezocht = Double.parseDouble(s);
-			int teller = 0;
-			while(teller < salaris.length) {
-				if(salaris[teller] == gezocht) {
+			String getal = tekstvak.getText();
+			vind = Integer.parseInt(getal);
+			int index = 0;
+			while(index < salaris.length) {
+				if(salaris[index] == vind) {
 					gevonden = true;
 					salarisaantal ++;
 				}
-				teller ++;
+				index ++;
 			}
 			tekstvak.setText("");
 			repaint();
@@ -49,11 +48,11 @@ public class Opdracht6 extends Applet {
 
 	public void paint(Graphics g) {
 		if(gevonden) {
-			g.drawString("De waarde is " + salarisaantal + " keer gevonden.", 20, 50);
+			g.drawString("De waarde " + vind + " is " + salarisaantal + " keer gevonden.", 20, 50);
 			gevonden = false;
 			salarisaantal = 0;
 		}else {
-			g.drawString("De waarde is niet gevonden.", 20, 50);
+			g.drawString("De waarde " + vind + " is niet gevonden.", 20, 50);
 		}
 	}
 }

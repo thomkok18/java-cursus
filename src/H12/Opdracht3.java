@@ -10,36 +10,36 @@ import java.util.Arrays;
 // Een klasse met de naam Opdracht3 van het type Applet.
 @SuppressWarnings("serial")
 public class Opdracht3 extends Applet {
-	int[] tekstvakken = new int[5];
-	TextField[] tekstvak = new TextField[5];	
+	int[] getallen = new int[5];
+	TextField[] tekstvakken = new TextField[5];
 	Button knop;
-	String a;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
 		setSize(400, 400);
 		knop = new Button("Getallen invoeren");
 		add(knop);		
-		knop.addActionListener (new tekstvakListener());
-		for (int teller = 0; teller < 5; teller ++) {	            
-			tekstvak[teller] = new TextField("");				 
-			add(tekstvak[teller]);		 			 
+		knop.addActionListener (new TekstvakkenListener());
+		for (int tekstvak = 0; tekstvak < 5; tekstvak++) {
+			tekstvakken[tekstvak] = new TextField("");
+			add(tekstvakken[tekstvak]);
 		}		
 	}
 
-	class tekstvakListener implements ActionListener	{
+	class TekstvakkenListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-			for (int teller = 0; teller < tekstvak.length; teller ++) {
-				a = tekstvak[teller].getText();
-				tekstvakken[teller] = Integer.parseInt( a);
+			String getal;
+			for (int cijfer = 0; cijfer < tekstvakken.length; cijfer++) {
+				getal = tekstvakken[cijfer].getText();
+				getallen[cijfer] = Integer.parseInt(getal);
 			}
-			Arrays.sort(tekstvakken);
+			Arrays.sort(getallen);
 			repaint();
 		}
 	}
 	public void paint(Graphics g) {
-		for (int teller = 0; teller < tekstvakken.length; teller ++) {
-			g.drawString("" + tekstvakken[teller], 50, 20 * teller + 20);
+		for (int geordend = 0; geordend < getallen.length; geordend++) {
+			g.drawString("" + getallen[geordend], 50, 20 * geordend + 20);
 		}
 	}
 }

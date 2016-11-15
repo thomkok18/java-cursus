@@ -9,7 +9,7 @@ import java.applet.*;
 @SuppressWarnings("serial")
 public class Opdracht1 extends Applet {
 	double gemiddelde;
-	int teller, salaris[], optellen, beginGetal, totaalSalaris;
+	int maand, salaris[], optellen, beginGetal, totaalSalaris;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
@@ -18,17 +18,17 @@ public class Opdracht1 extends Applet {
 		beginGetal = 100;
 		totaalSalaris = 0;
 		salaris = new int[10];
-		for (int teller = 0; teller < salaris.length; teller ++) {
-			salaris[teller] = optellen * teller + beginGetal;
-			totaalSalaris += salaris[teller];
+		for (maand = 0; maand < salaris.length; maand++) {
+			salaris[maand] = optellen * maand + beginGetal;
+			totaalSalaris += salaris[maand];
 		}
 	}
 
 	// Een methode die de inhoud van het scherm tekent.
 	public void paint(Graphics g) {
 		gemiddelde = totaalSalaris / salaris.length;
-		for (int teller = 0; teller < salaris.length; teller ++) {
-			g.drawString("" + salaris[teller], 50, 20 * teller + 20);
+		for (maand = 0; maand < salaris.length; maand ++) {
+			g.drawString("" + salaris[maand], 50, 20 * maand + 20);
 			g.drawString ("Gemiddelde is: " + gemiddelde, 50, 220); 
 		} 
 	}

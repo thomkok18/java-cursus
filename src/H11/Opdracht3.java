@@ -16,13 +16,13 @@ public class Opdracht3 extends Applet {
 
 	// Een methode die de inhoud van het scherm tekent.	
 	public void paint(Graphics g) {
-		int teller, a = 1, b = 1, c = 0, x = 10;
-		for(teller = 1; teller <= 20; teller++) {
-			a = b + c;
-			b = c;
-			c = a;
-			g.drawString("" + c, x , 50);
-			x += 40;
+		int eersteGetal = 1, tweedeGetal = 1, antwoord = 0, afstandGetallen = 10;
+		for(int aantalGetallen = 0; aantalGetallen <= 20; aantalGetallen++) {
+			eersteGetal = tweedeGetal + antwoord;
+			tweedeGetal = antwoord;
+			antwoord = eersteGetal;
+			g.drawString("" + antwoord, afstandGetallen , 50);
+			afstandGetallen += 40;
 		} 
 	}
 }

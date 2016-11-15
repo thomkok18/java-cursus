@@ -7,7 +7,7 @@ import java.applet.*;
 import java.awt.event.*;
 import java.text.DecimalFormat;
 
-// Een klasse met de naam Praktijkopdracht van het type Applet.
+// Een klasse met de naam PraktijkOpdracht van het type Applet.
 @SuppressWarnings("serial")
 public class Toets1 extends Applet {
 	Button frisKnop, bierKnop, wijnKnop, koffieKnop, binDistKnop, buitDistKnop, nieuweBestelligKnop;
@@ -24,25 +24,25 @@ public class Toets1 extends Applet {
 		binDistBestelling = 0;
 		buitDistBestelling = 0;
 		frisKnop = new Button("Fris");
-		frisKnop.addActionListener( new frisKnopListener() );
+		frisKnop.addActionListener( new FrisKnopListener() );
 		add(frisKnop);
 		bierKnop = new Button("Bier");
-		bierKnop.addActionListener( new bierKnopListener() );
+		bierKnop.addActionListener( new BierKnopListener() );
 		add(bierKnop);
 		wijnKnop = new Button("Wijn");
-		wijnKnop.addActionListener( new wijnKnopListener() );
+		wijnKnop.addActionListener( new WijnKnopListener() );
 		add(wijnKnop);
 		koffieKnop = new Button("Koffie");
-		koffieKnop.addActionListener( new koffieKnopListener() );
+		koffieKnop.addActionListener( new KoffieKnopListener() );
 		add(koffieKnop);
 		binDistKnop = new Button("BinDist");
-		binDistKnop.addActionListener( new binDistKnopListener() );
+		binDistKnop.addActionListener( new BinDistKnopListener() );
 		add(binDistKnop);
 		buitDistKnop = new Button("BuitDist");
-		buitDistKnop.addActionListener( new buitDistKnopListener() );
+		buitDistKnop.addActionListener( new BuitDistKnopListener() );
 		add(buitDistKnop);
 		nieuweBestelligKnop = new Button("Nieuwe Bestelling");
-		nieuweBestelligKnop.addActionListener( new nieuweBestelligKnopListener() );
+		nieuweBestelligKnop.addActionListener( new NieuweBestelligKnopListener() );
 		add(nieuweBestelligKnop);
 	}
 
@@ -58,7 +58,7 @@ public class Toets1 extends Applet {
 		g.drawString("Totaal dagomzet: " + String.format("€ %.2f", dagomzet), 50, 220 );
 	}
 
-	class frisKnopListener implements ActionListener	{
+	class FrisKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			bedrag = 2.00;
 			frisBestelling++;
@@ -66,7 +66,7 @@ public class Toets1 extends Applet {
 			repaint();
 		}
 	}
-	class bierKnopListener implements ActionListener	{
+	class BierKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			bedrag = 2.25;
 			bierBestelling++;
@@ -74,7 +74,7 @@ public class Toets1 extends Applet {
 			repaint();
 		}
 	}
-	class wijnKnopListener implements ActionListener	{
+	class WijnKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			bedrag = 2.50;
 			wijnBestelling++;
@@ -82,7 +82,7 @@ public class Toets1 extends Applet {
 			repaint();
 		}
 	}
-	class koffieKnopListener implements ActionListener	{
+	class KoffieKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			bedrag = 1.75;
 			koffieBestelling++;
@@ -90,7 +90,7 @@ public class Toets1 extends Applet {
 			repaint();
 		}
 	}
-	class binDistKnopListener implements ActionListener	{
+	class BinDistKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			bedrag = 2.75;
 			binDistBestelling++;
@@ -98,7 +98,7 @@ public class Toets1 extends Applet {
 			repaint();
 		}
 	}
-	class buitDistKnopListener implements ActionListener	{
+	class BuitDistKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			bedrag = 3.50;
 			buitDistBestelling++;
@@ -106,7 +106,7 @@ public class Toets1 extends Applet {
 			repaint();
 		}
 	}
-	class nieuweBestelligKnopListener implements ActionListener	{
+	class NieuweBestelligKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			dagomzet = bestellingswaarde + dagomzet;
 			frisBestelling = 0;

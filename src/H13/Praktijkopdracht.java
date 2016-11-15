@@ -5,7 +5,7 @@ package H13;
 import java.awt.*;
 import java.applet.*;
 
-//Een klasse met de naam Praktijkopdracht van het type Applet.
+//Een klasse met de naam PraktijkOpdracht van het type Applet.
 @SuppressWarnings("serial")
 public class Praktijkopdracht extends Applet {
 	int naarRechts = 100, aantalBomen = 5, aantalRijen = 2, boomstam = 120, bladeren = 60;

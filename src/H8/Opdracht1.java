@@ -20,10 +20,10 @@ public class Opdracht1 extends Applet {
 		label = new Label("Tekst");
 		add(label);
 		okKnop = new Button("Ok");
-		okKnop.addActionListener( new okKnopListener() );
+		okKnop.addActionListener( new OkKnopListener() );
 		add(okKnop);
 		resetKnop = new Button("Reset");
-		resetKnop.addActionListener( new resetKnopListener() );
+		resetKnop.addActionListener( new ResetKnopListener() );
 		add(tekstvak);
 		add(resetKnop);
 	}
@@ -33,14 +33,14 @@ public class Opdracht1 extends Applet {
 		g.drawString(string, 50, 60 );
 	}
 
-	class okKnopListener implements ActionListener	{
+	class OkKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			string = tekstvak.getText();
 			repaint();
 		}
 	}
 
-	class resetKnopListener implements ActionListener	{
+	class ResetKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			string = ("");
 			tekstvak.setText("");

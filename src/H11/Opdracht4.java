@@ -16,12 +16,11 @@ public class Opdracht4 extends Applet {
 
 	// Een methode die de inhoud van het scherm tekent.	
 	public void paint(Graphics g) {
-		int teller, a = 3, b = 1, c = 0, x = 10;
-		for(teller = 1; teller <= 10; teller++) {
-			b = teller;
-			c = a * b;
-			g.drawString("" + c, x , 50);
-			x += 20;
+		int teller, tafel = 3, keerNummer = 1, aantalAntwoorden = 10, antwoord = 0, xCoordinaat = 20;
+		for(keerNummer = 1; keerNummer <= aantalAntwoorden; keerNummer++) {
+			antwoord = tafel * keerNummer;
+			g.drawString("" + antwoord, xCoordinaat , 50);
+			xCoordinaat += 20;
 		} 
 	}
 }

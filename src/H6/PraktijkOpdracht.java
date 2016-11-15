@@ -5,9 +5,9 @@ package H6;
 import java.awt.*;
 import java.applet.*;
 
-// Een klasse met de naam Praktijkopdracht van het type Applet.
+// Een klasse met de naam PraktijkOpdracht van het type Applet.
 @SuppressWarnings("serial")
-public class Praktijkopdracht extends Applet {
+public class PraktijkOpdracht extends Applet {
 	double cijfer1, cijfer2, cijfer3, cijfersKeer, uitkomst;
 	int aantalCijfers, tien, gemiddelde;
 

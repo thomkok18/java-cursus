@@ -6,9 +6,9 @@ import java.awt.*;
 import java.applet.*;
 import java.awt.event.*;
 
-// Een klasse met de naam Praktijkopdracht van het type Applet.
+// Een klasse met de naam PraktijkOpdracht van het type Applet.
 @SuppressWarnings("serial")
-public class Praktijkopdracht extends Applet {
+public class PraktijkOpdracht extends Applet {
 	TextField tekstvak;
 	String beoordeling;
 	Label label;
@@ -22,7 +22,7 @@ public class Praktijkopdracht extends Applet {
 		label = new Label("Voer je behaalde cijfer in");
 		add(label);
 		okKnop = new Button("Ok");
-		okKnop.addActionListener( new okKnopListener() );
+		okKnop.addActionListener( new OkKnopListener() );
 		add(okKnop);
 		tekstvak = new TextField("", 20);
 		add(tekstvak);
@@ -34,7 +34,7 @@ public class Praktijkopdracht extends Applet {
 
 	}
 
-	class okKnopListener implements ActionListener	{
+	class OkKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			cijfer = Double.parseDouble(tekstvak.getText());
 			if (cijfer >= 1 && cijfer <= 10){

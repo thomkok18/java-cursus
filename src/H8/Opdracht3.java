@@ -23,7 +23,7 @@ public class Opdracht3 extends Applet {
 		label = new Label("Inclusief BTW");
 		add(label);
 		okKnop = new Button("Ok");
-		okKnop.addActionListener( new okKnopListener() );
+		okKnop.addActionListener( new OkKnopListener() );
 		add(okKnop);
 		tekstvak = new TextField("", 20);
 		add(tekstvak);
@@ -34,7 +34,7 @@ public class Opdracht3 extends Applet {
 		g.drawString("Exclusief BTW: " + btwUitkomst, 50, 60 );
 	}
 
-	class okKnopListener implements ActionListener	{
+	class OkKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			string = tekstvak.getText();
 			ingevoerdGetal = Integer.parseInt(string);
