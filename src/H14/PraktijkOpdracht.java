@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 
 // Een klasse met de naam Opdracht1 van het type Applet.
 @SuppressWarnings("serial")
-public class Opdracht2 extends Applet {
+public class PraktijkOpdracht extends Applet {
     String[] cijfers = {"Aas", "Twee", "Drie", "Vier", "Vijf", "Zes", "Zeven", "Acht", "Negen", "Tien", "Boer", "Koningin", "Koning"};
     String[] kleuren = {"Ruit", "Klaver", "Harten", "Schoppen"};
     String[] afgegeven;

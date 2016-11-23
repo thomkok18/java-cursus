@@ -9,7 +9,7 @@ import java.text.DecimalFormat;
 
 // Een klasse met de naam PraktijkOpdracht van het type Applet.
 @SuppressWarnings("serial")
-public class Toets1 extends Applet {
+public class Toets extends Applet {
 	Button frisKnop, bierKnop, wijnKnop, koffieKnop, binDistKnop, buitDistKnop, nieuweBestelligKnop;
 	double bedrag, bestellingswaarde, dagomzet;
 	int frisBestelling, bierBestelling, wijnBestelling, koffieBestelling, binDistBestelling, buitDistBestelling;

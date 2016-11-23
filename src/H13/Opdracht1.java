@@ -21,52 +21,63 @@ public class Opdracht1 extends Applet {
 		gekliktGeel = false;
 		gekliktPaars = false;
 		blauw = new Button("Blauw");
-		blauw.addActionListener( new blauwListener() );
+		blauw.addActionListener( new BlauwListener() );
 		add(blauw);
 		groen = new Button("Groen");
-		groen.addActionListener( new groenListener() );
+		groen.addActionListener( new GroenListener() );
 		add(groen);
 		rood = new Button("Rood");
-		rood.addActionListener( new roodListener() );
+		rood.addActionListener( new RoodListener() );
 		add(rood);
 		geel = new Button("Geel");
-		geel.addActionListener( new geelListener() );
+		geel.addActionListener( new GeelListener() );
 		add(geel);
 		paars = new Button("Paars");
-		paars.addActionListener( new paarsListener() );
+		paars.addActionListener( new PaarsListener() );
 		add(paars);
 	}
 
 	// Een methode die de inhoud van het scherm tekent.	
 	public void paint(Graphics g) {
+		setBackground(Color.BLACK);
 		if (gekliktBlauw) {
 			g.setColor(Color.BLUE);
 			g.drawString("Blauw",  50, 60);
 			gekliktBlauw = false;
+		} else {
+			blauw.setBackground(new Color(240, 240, 240));
 		}
 		if (gekliktGroen) {
 			g.setColor(Color.GREEN);
 			g.drawString("Groen",  50, 60);
 			gekliktGroen = false;
+		} else {
+			groen.setBackground(new Color(240, 240, 240));
 		}
 		if (gekliktRood) {
 			g.setColor(Color.RED);
 			g.drawString("Rood",  50, 60);
 			gekliktRood = false;
+		} else {
+			rood.setBackground(new Color(240, 240, 240));
 		}
 		if (gekliktGeel) {
 			g.setColor(Color.YELLOW);
 			g.drawString("Geel",  50, 60);
 			gekliktGeel = false;
+		} else {
+			geel.setBackground(new Color(240, 240, 240));
 		}
 		if (gekliktPaars) {
 			g.setColor(Color.MAGENTA);
 			g.drawString("Paars",  50, 60);
 			gekliktPaars = false;
+		} else {
+			paars.setBackground(new Color(240, 240, 240));
 		}
 	}
 
-	class blauwListener implements ActionListener	{
+	class BlauwListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			blauw.setBackground(Color.BLUE);
 			gekliktBlauw = true;
@@ -74,7 +85,7 @@ public class Opdracht1 extends Applet {
 		}
 	}
 
-	class groenListener implements ActionListener	{
+	class GroenListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			groen.setBackground(Color.GREEN);
 			gekliktGroen = true;
@@ -82,7 +93,7 @@ public class Opdracht1 extends Applet {
 		}
 	}
 
-	class roodListener implements ActionListener	{
+	class RoodListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			rood.setBackground(Color.RED);
 			gekliktRood = true;
@@ -90,7 +101,7 @@ public class Opdracht1 extends Applet {
 		}
 	}
 
-	class geelListener implements ActionListener	{
+	class GeelListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			geel.setBackground(Color.YELLOW);
 			gekliktGeel = true;
@@ -98,7 +109,7 @@ public class Opdracht1 extends Applet {
 		}
 	}
 
-	class paarsListener implements ActionListener	{
+	class PaarsListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			paars.setBackground(Color.MAGENTA);
 			gekliktPaars = true;

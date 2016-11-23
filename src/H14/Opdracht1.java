@@ -4,27 +4,41 @@ package H14;
 // Importeer de benodigde klassen uit de Java bibliotheek.
 import java.awt.*;
 import java.applet.*;
+import java.awt.event.*;
 
 // Een klasse met de naam Opdracht1 van het type Applet.
 @SuppressWarnings("serial")
 public class Opdracht1 extends Applet {
-	String [] cijfers = {"aas", "twee", "drie", "vier", "vijf", "zes", "zeven", "acht", "negen", "tien", "boer", "koningin", "koning", "joker"};
-	String [] kleuren = {"ruit", "klaver", "harten", "schoppen"};
-	double r, b;
-	int randomCijfer, randomKleur;
+    String[] cijfers = {"Aas", "Twee", "Drie", "Vier", "Vijf", "Zes", "Zeven", "Acht", "Negen", "Tien", "Boer", "Koningin", "Koning", "Joker"};
+    String[] kleuren = {"Ruit", "Klaver", "Harten", "Schoppen"};
+    double randomCijfers, randomKleuren;
+    int randomCijfer, randomKleur;
+    Button deelKnop;
 
-	// Een (lege) methode die de Applet gaat initialiseren.
-	public void init() {
-		setSize(400, 200);
-		r = Math.random();
-		randomCijfer = (int) (r * 12);
+    // Een (lege) methode die de Applet gaat initialiseren.
+    public void init() {
+        setSize(400, 200);
+        deelKnop = new Button("Deel Kaart");
+        deelKnop.addActionListener(new DeelKnopLuisteraar());
+        add(deelKnop);
+    }
 
-		b = Math.random();
-		randomKleur = (int) (b * 4);
-	}
+    class DeelKnopLuisteraar implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            randomCijfers = Math.random();
+            randomCijfer = (int) (randomCijfers * 14);
+            randomKleuren = Math.random();
+            randomKleur = (int) (randomKleuren * 4);
+            repaint();
+        }
+    }
 
-	// Een methode die de inhoud van het scherm tekent.	
-	public void paint(Graphics g) {		
-		g.drawString("" + kleuren[randomKleur] + ", " + cijfers[randomCijfer], 20,20);
-	}
+    // Een methode die de inhoud van het scherm tekent.
+    public void paint(Graphics g) {
+        if (randomCijfer == 13) {
+            g.drawString("" + cijfers[13], 20, 20);
+        } else {
+            g.drawString("" + kleuren[randomKleur] + ", " + cijfers[randomCijfer], 20, 20);
+        }
+    }
 }

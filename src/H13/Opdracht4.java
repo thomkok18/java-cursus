@@ -10,8 +10,8 @@ import java.awt.event.*;
 @SuppressWarnings("serial")
 public class Opdracht4 extends Applet {
 	private Button bakstenenknop, betonblokkenknop;
-	int breedtesteen, hoogtesteen;
-	private int nAantalSteenHor, nAantalSteenver;
+	int breedtesteen, hoogtesteen, aantalVerticaal, aantalHorizontaal;
+	private int aantalSteenHorizontaal, aantalSteenVerticaal;
 	Color steenkleur, voegKleur;
 	boolean tekenmuur;
 
@@ -34,8 +34,8 @@ public class Opdracht4 extends Applet {
 		int x = 50;
 		int y = 50;
 		if (tekenmuur){
-			for (int i = 0; i < nAantalSteenver; i++){
-				for( int j = 0; j < nAantalSteenHor; j++){
+			for (aantalVerticaal = 0; aantalVerticaal < aantalSteenVerticaal; aantalVerticaal++){
+				for(aantalHorizontaal = 0; aantalHorizontaal < aantalSteenHorizontaal; aantalHorizontaal++){
 					g.setColor(steenkleur);
 					g.fillRect(x, y, breedtesteen, hoogtesteen);
 					g.setColor(voegKleur);
@@ -45,7 +45,6 @@ public class Opdracht4 extends Applet {
 				y += hoogtesteen;
 				x = 50;
 			}
-
 		}
 	}
 
@@ -53,24 +52,22 @@ public class Opdracht4 extends Applet {
 		public void actionPerformed(ActionEvent e) {
 			breedtesteen = 40;
 			hoogtesteen = 30;
-			nAantalSteenHor = 25;
-			nAantalSteenver = 20;
+			aantalSteenHorizontaal = 25;
+			aantalSteenVerticaal = 20;
 			steenkleur = Color.RED;
 			tekenmuur = true;
 			repaint();
 		}
-
 	}
 	class BetonblokLuisteraar implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			breedtesteen = 60;
 			hoogtesteen = 50;
-			nAantalSteenHor = 15;
-			nAantalSteenver = 10;
+			aantalSteenHorizontaal = 15;
+			aantalSteenVerticaal = 10;
 			steenkleur = Color.GRAY;
 			tekenmuur = true;
 			repaint();
 		}
-
 	}
 }
