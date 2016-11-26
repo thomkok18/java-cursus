@@ -22,22 +22,21 @@ public class Dobbelstenen extends Applet {
         setSize(400, 200);
         dobbelsteen = new String[6];
         for (int i = 0; i < dobbelsteen.length; i++) {
-
+            pad = Dobbelstenen.class.getResource("/Creaties/Dobbelsteen/dobbel" + i + ".jpg");
+            afbeelding = getImage(pad, "dobbel"+ i +".jpg");
         }
-
-        afbeelding = getImage(pad, "dobbel1.jpg");
-        gooiKnop = new Button("Gooi");
-        gooiKnop.addActionListener(new DobbelKnopLuisteraar());
-        add(gooiKnop);
+//        gooiKnop = new Button("Gooi");
+//        gooiKnop.addActionListener(new DobbelKnopLuisteraar());
+//        add(gooiKnop);
     }
 
-    class DobbelKnopLuisteraar implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            random = Math.random();
-            worp = (int) (random * 6 + 1);
-            repaint();
-        }
-    }
+//    class DobbelKnopLuisteraar implements ActionListener {
+//        public void actionPerformed(ActionEvent e) {
+//            random = Math.random();
+//            worp = (int) (random * 6 + 1);
+//            repaint();
+//        }
+//    }
 
     // Een methode die de inhoud van het scherm tekent.
     public void paint(Graphics g) {
