@@ -12,7 +12,7 @@ import java.net.*;
 // Een klasse met de naam Opdracht1 van het type Applet.
 @SuppressWarnings("serial")
 public class Dobbelstenen extends Applet {
-    private Image afbeeldingWit, afbeeldingBlauw, afbeeldingGroen, afbeeldingRood, afbeeldingGeel;
+    private Image afbeeldingWit, afbeeldingBlauw, afbeeldingGroen, afbeeldingRood, afbeeldingGeel, afbeeldingOranje, afbeeldingBruin, afbeeldingPaars, afbeeldingRoze, afbeeldingGrijs;
     private URL pad;
     Button gooiKnop;
 
@@ -51,6 +51,31 @@ public class Dobbelstenen extends Applet {
             pad = Dobbelstenen.class.getResource("/Creaties/KleurDobbelstenen/Geel/dobbel" + worpGeel + ".jpg");
             afbeeldingGeel = getImage(pad, "dobbel"+ worpGeel +".jpg");
 
+            double randomOranje = Math.random();
+            int worpOranje = (int) (randomOranje * 6);
+            pad = Dobbelstenen.class.getResource("/Creaties/KleurDobbelstenen/Oranje/dobbel" + worpOranje + ".jpg");
+            afbeeldingOranje = getImage(pad, "dobbel"+ worpOranje +".jpg");
+
+            double randomBruin = Math.random();
+            int worpBruin = (int) (randomBruin * 6);
+            pad = Dobbelstenen.class.getResource("/Creaties/KleurDobbelstenen/Bruin/dobbel" + worpBruin + ".jpg");
+            afbeeldingBruin = getImage(pad, "dobbel"+ worpBruin +".jpg");
+
+            double randomPaars = Math.random();
+            int worpPaars = (int) (randomPaars * 6);
+            pad = Dobbelstenen.class.getResource("/Creaties/KleurDobbelstenen/Paars/dobbel" + worpPaars + ".jpg");
+            afbeeldingPaars = getImage(pad, "dobbel"+ worpPaars +".jpg");
+
+            double randomRoze = Math.random();
+            int worpRoze = (int) (randomRoze * 6);
+            pad = Dobbelstenen.class.getResource("/Creaties/KleurDobbelstenen/Roze/dobbel" + worpRoze + ".jpg");
+            afbeeldingRoze = getImage(pad, "dobbel"+ worpRoze +".jpg");
+
+            double randomGrijs = Math.random();
+            int worpGrijs = (int) (randomGrijs * 6);
+            pad = Dobbelstenen.class.getResource("/Creaties/KleurDobbelstenen/Grijs/dobbel" + worpGrijs + ".jpg");
+            afbeeldingGrijs = getImage(pad, "dobbel"+ worpGrijs +".jpg");
+
             repaint();
         }
     }
@@ -67,5 +92,15 @@ public class Dobbelstenen extends Applet {
             g.drawImage(afbeeldingRood, x, 40, 50, 50, this);
         x += 80;
             g.drawImage(afbeeldingGeel, x, 40, 50, 50, this);
+        x = 40;
+        g.drawImage(afbeeldingOranje, x, 120, 50, 50, this);
+        x += 80;
+        g.drawImage(afbeeldingBruin, x, 120, 50, 50, this);
+        x += 80;
+        g.drawImage(afbeeldingPaars, x, 120, 50, 50, this);
+        x += 80;
+        g.drawImage(afbeeldingRoze, x, 120, 50, 50, this);
+        x += 80;
+        g.drawImage(afbeeldingGrijs, x, 120, 50, 50, this);
     }
 }
