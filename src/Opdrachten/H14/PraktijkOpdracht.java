@@ -119,6 +119,7 @@ public class PraktijkOpdracht extends Applet {
                         tekstvak.setText("");
                         repaint();
                     } else {
+                        spelerGetal = 0;
                         foutmelding = true;
                         geklikt = true;
                         error = "De variable klopt niet.";
