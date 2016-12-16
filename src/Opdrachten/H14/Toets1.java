@@ -8,7 +8,7 @@ import java.awt.event.*;
 
 // Een klasse met de naam Toets1 van het type Applet.
 @SuppressWarnings("serial")
-public class Toets extends Applet {
+public class Toets1 extends Applet {
 	Button frisbierKnop, wijnKnop, koffietheeKnop, binnenlandsgedistKnop, buitenlandsgedistKnop, nieuwebestellingKnop, bestellingafrondenKnop, totaleomzetKnop;
 	double bedrag, aantalGeklikt = 1, bestellingswaarde, productwaarde;
 	int frisBier = 0, totaalFrisBier = 0;
