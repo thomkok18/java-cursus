@@ -10,36 +10,42 @@ import java.awt.event.*;
 @SuppressWarnings("serial")
 public class Toets1 extends Applet {
 	Button frisbierKnop, wijnKnop, koffietheeKnop, binnenlandsgedistKnop, buitenlandsgedistKnop, nieuwebestellingKnop, bestellingafrondenKnop, totaleomzetKnop;
-	double bedrag, aantalGeklikt, bestellingswaarde, productwaarde;
-	int frisBier,wijn, koffieThee, binnelandsGedist , buitenlandsGedist, totaalFrisBier, totaalWijn, totaalKoffieThee, totaalBinnelandsGedist, totaalBuitenlandsGedist;
-	boolean nieuweBestelling, extraBestelling, drankKiezen, aantalFrisBier, aantalWijn, aantalKoffieThee, aantalBinnenlandsGedist, aantalBuitenlandsGedist, totaleomzet;
+	int aantalFrisBier, aantalWijn, aantalKoffieThee, aantalBinnenlandsGedist, aantalBuitenlandsGedist, totaalFrisBier, totaalWijn, totaalKoffieThee, totaalbinnenlandsGedist, totaalBuitenlandsGedist;
+	double bedrag, bestellingswaardeFrisBier, bestellingswaardeWijn, bestellingswaardeKoffieThee,bestellingswaardeBinnenlandsGedist, bestellingswaardeBuitenlandsGedist, bestelling, omzet;
+	boolean drankKiezen, nieuweBestelling, frisBier, wijn, koffieThee, binnenlandsGedist, buitenlandsGedist, bestellingAfronden, totaleOmzet;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
 		setSize(500, 400);
-		aantalGeklikt = 0;
-		frisBier = 0;
-		wijn = 0;
-		koffieThee = 0;
-		binnelandsGedist = 0;
-		buitenlandsGedist = 0;
 
+		aantalFrisBier = 0;
+		aantalWijn = 0;
+		aantalKoffieThee = 0;
+		aantalBinnenlandsGedist = 0;
+		aantalBuitenlandsGedist = 0;
+		bedrag = 0;
+		bestellingswaardeFrisBier = 0;
+		bestellingswaardeWijn = 0;
+		bestellingswaardeKoffieThee = 0;
+		bestellingswaardeBinnenlandsGedist = 0;
+		bestellingswaardeBuitenlandsGedist = 0;
+		bestelling = 0;
+		omzet = 0;
 		totaalFrisBier = 0;
 		totaalWijn = 0;
 		totaalKoffieThee = 0;
-		totaalBinnelandsGedist = 0;
+		totaalbinnenlandsGedist = 0;
 		totaalBuitenlandsGedist = 0;
 
-		aantalFrisBier = false;
-		aantalWijn = false;
-		aantalKoffieThee = false;
-		aantalBinnenlandsGedist = false;
-		aantalBuitenlandsGedist = false;
-
-		nieuweBestelling = false;
-		extraBestelling = false;
 		drankKiezen = false;
-		totaleomzet = false;
+		nieuweBestelling = false;
+		frisBier = false;
+		wijn = false;
+		koffieThee = false;
+		binnenlandsGedist = false;
+		buitenlandsGedist = false;
+		bestellingAfronden = false;
+		totaleOmzet = false;
 
 		frisbierKnop = new Button("Fris/Bier");
 		frisbierKnop.addActionListener( new FrisbierListener() );
@@ -85,90 +91,94 @@ public class Toets1 extends Applet {
 
 	// Een methode die de inhoud van het scherm tekent.	
 	public void paint(Graphics g) {
-		if (aantalFrisBier) {
-			g.drawString("Fris/Bier: " + totaalFrisBier, 50, 100);
-		}
-		if (aantalWijn) {
+		if (totaleOmzet) {
+			g.drawString("Voer dranken in:", 50, 80);
+			g.drawString("FrisBier: " + totaalFrisBier, 50, 100);
 			g.drawString("Wijn: " + totaalWijn, 50, 120);
-		}
-		if (aantalKoffieThee) {
 			g.drawString("Koffie/Thee: " + totaalKoffieThee, 50, 140);
+			g.drawString("Binnenlandsgedist: " + totaalbinnenlandsGedist, 50, 160);
+			g.drawString("Buitenlandsgedist: " + totaalBuitenlandsGedist, 50, 180);
+			g.drawString("De totale omzet: " + omzet, 50, 200);
 		}
-		if (aantalBinnenlandsGedist) {
-			g.drawString("BinnelandsGedist: " + totaalBinnelandsGedist, 50, 160);
-		}
-		if (aantalBuitenlandsGedist) {
-			g.drawString("BuitenlandsGedist: " + totaalBuitenlandsGedist, 50, 180);
-		}
-		if (drankKiezen) {
-			g.drawString("Fris/Bier: " + frisBier, 50, 100);
-			g.drawString("Wijn: " + wijn, 50, 120);
-			g.drawString("Koffie/Thee: " + frisBier, 50, 140);
-			g.drawString("BinnenlandsGedist: " + binnelandsGedist, 50, 160);
-			g.drawString("BuitenlandsGedist: " + buitenlandsGedist, 50, 180);
-		}
-		if (totaleomzet) {
-			g.drawString("Totaal aantal producten verkocht.", 50, 80);
-		}
-		if (extraBestelling) {
-			g.drawString("Maak een keuze", 50, 80);
-			g.drawString("Totaal Bedrag: " + productwaarde, 50, 140 );
-			g.drawString("Totaal Bestellingsbedrag: " + bestellingswaarde, 50, 120 );
+		if (bestellingAfronden) {
+			if (frisBier) {
+				g.drawString("Fris/Bier: " + aantalFrisBier, 50, 100);
+			}
+			if (wijn) {
+				g.drawString("Wijn: " + aantalWijn, 50, 120);
+			}
+			if (koffieThee) {
+				g.drawString("Koffie/Thee: " + aantalKoffieThee, 50, 140);
+			}
+			if (binnenlandsGedist) {
+				g.drawString("binnenlandsGedist: " + aantalBinnenlandsGedist, 50, 160);
+			}
+			if (buitenlandsGedist) {
+				g.drawString("BuitenlandsGedist: " + aantalBuitenlandsGedist, 50, 180);
+			}
+			g.drawString("Het bedrag van je bestelling: " + bestelling, 50, 200);
 		}
 		if (nieuweBestelling) {
-			g.drawString("Totaal Bedrag: " + productwaarde, 50, 200 );
-			g.drawString("Totaal Bestellingsbedrag: " + bestellingswaarde, 50, 220 );
-		}
-		if (drankKiezen) {
-			g.drawString("Voer dranken in", 50, 80);
+			g.drawString("Voer dranken in:", 50, 80);
+			g.drawString("FrisBier: " + aantalFrisBier, 50, 100);
+			g.drawString("Wijn: " + aantalWijn, 50, 120);
+			g.drawString("Koffie/Thee: " + aantalKoffieThee, 50, 140);
+			g.drawString("Binnenlandsgedist: " + aantalBinnenlandsGedist, 50, 160);
+			g.drawString("Buitenlandsgedist: " + aantalBuitenlandsGedist, 50, 180);
+			g.drawString("Totale bedrag van je bestelling: " + bestelling, 50, 200);
 		}
 	}
 
 	class FrisbierListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-			aantalGeklikt++;
-			frisBier++;
+			aantalFrisBier++;
 			bedrag = 2.00;
-			bestellingswaarde = bedrag * aantalGeklikt;
+			frisBier = true;
+			bestellingswaardeFrisBier = aantalFrisBier * bedrag;
+			bestelling = bestellingswaardeFrisBier + bestellingswaardeWijn + bestellingswaardeKoffieThee + bestellingswaardeBinnenlandsGedist + bestellingswaardeBuitenlandsGedist;
 			repaint();
 		}
 	}
 
 	class WijnListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-			aantalGeklikt++;
-			wijn++;
+			aantalWijn++;
 			bedrag = 2.50;
-			bestellingswaarde = bedrag * aantalGeklikt;
+			wijn = true;
+			bestellingswaardeWijn = aantalWijn * bedrag;
+			bestelling = bestellingswaardeFrisBier + bestellingswaardeWijn + bestellingswaardeKoffieThee + bestellingswaardeBinnenlandsGedist + bestellingswaardeBuitenlandsGedist;
 			repaint();
 		}
 	}
 
 	class KoffietheeListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-			aantalGeklikt++;
-			koffieThee++;
+			aantalKoffieThee++;
 			bedrag = 1.75;
-			bestellingswaarde = bedrag * aantalGeklikt;
+			koffieThee = true;
+			bestellingswaardeKoffieThee = aantalKoffieThee * bedrag;
+			bestelling = bestellingswaardeFrisBier + bestellingswaardeWijn + bestellingswaardeKoffieThee + bestellingswaardeBinnenlandsGedist + bestellingswaardeBuitenlandsGedist;
 			repaint();
 		}
 	}
 
 	class BinnenlandsgedistListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-			aantalGeklikt++;
-			binnelandsGedist++;
+			aantalBinnenlandsGedist++;
 			bedrag = 2.75;
-			bestellingswaarde = bedrag * aantalGeklikt;
+			binnenlandsGedist = true;
+			bestellingswaardeBinnenlandsGedist = aantalBinnenlandsGedist * bedrag;
+			bestelling = bestellingswaardeFrisBier + bestellingswaardeWijn + bestellingswaardeKoffieThee + bestellingswaardeBinnenlandsGedist + bestellingswaardeBuitenlandsGedist;
 			repaint();
 		}
 	}
 	class BuitenlandsgedistListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-			aantalGeklikt++;
-			buitenlandsGedist++;
+			aantalBuitenlandsGedist++;
 			bedrag = 3.50;
-			bestellingswaarde = bedrag * aantalGeklikt;
+			buitenlandsGedist = true;
+			bestellingswaardeBuitenlandsGedist = aantalBuitenlandsGedist * bedrag;
+			bestelling = bestellingswaardeFrisBier + bestellingswaardeWijn + bestellingswaardeKoffieThee + bestellingswaardeBinnenlandsGedist + bestellingswaardeBuitenlandsGedist;
 			repaint();
 		}
 	}
@@ -176,22 +186,27 @@ public class Toets1 extends Applet {
 	class NieuwebestellingListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
 			bedrag = 0;
-			frisBier = 0;
-			wijn = 0;
-			koffieThee = 0;
-			binnelandsGedist = 0;
-			buitenlandsGedist = 0;
+			aantalFrisBier = 0;
+			aantalWijn = 0;
+			aantalKoffieThee = 0;
+			aantalBinnenlandsGedist = 0;
+			aantalBuitenlandsGedist = 0;
+			bestellingswaardeFrisBier = 0;
+			bestellingswaardeWijn = 0;
+			bestellingswaardeKoffieThee = 0;
+			bestellingswaardeBinnenlandsGedist = 0;
+			bestellingswaardeBuitenlandsGedist = 0;
+			bestelling = 0;
 
-			aantalFrisBier = false;
-			aantalWijn = false;
-			aantalKoffieThee = false;
-			aantalBinnenlandsGedist = false;
-			aantalBuitenlandsGedist = false;
+			frisBier = false;
+			wijn = false;
+			koffieThee = false;
+			binnenlandsGedist = false;
+			buitenlandsGedist = false;
 
 			nieuweBestelling = true;
-			drankKiezen = true;
-			extraBestelling = false;
-			totaleomzet = false;
+			bestellingAfronden = false;
+			totaleOmzet = false;
 
 			frisbierKnop.setEnabled(true);
 			wijnKnop.setEnabled(true);
@@ -201,20 +216,22 @@ public class Toets1 extends Applet {
 			nieuwebestellingKnop.setEnabled(false);
 			bestellingafrondenKnop.setEnabled(true);
 			totaleomzetKnop.setEnabled(false);
-
-			bestellingswaarde = bedrag * aantalGeklikt;
-			productwaarde = bestellingswaarde + productwaarde;
-			bestellingswaarde = 0;
-			aantalGeklikt = 0;
 			repaint();
 		}
 	}
 
 	class BestellingafrondenListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-			extraBestelling = true;
-			drankKiezen = false;
 			nieuweBestelling = false;
+			bestellingAfronden = true;
+			totaleOmzet = false;
+
+			totaalFrisBier = aantalFrisBier + totaalFrisBier;
+			totaalWijn = aantalWijn + totaalWijn;
+			totaalKoffieThee = aantalKoffieThee + totaalKoffieThee;
+			totaalbinnenlandsGedist = aantalBinnenlandsGedist + totaalbinnenlandsGedist;
+			totaalBuitenlandsGedist = aantalBuitenlandsGedist + totaalBuitenlandsGedist;
+			omzet = bestelling + omzet;
 
 			frisbierKnop.setEnabled(false);
 			wijnKnop.setEnabled(false);
@@ -224,38 +241,17 @@ public class Toets1 extends Applet {
 			nieuwebestellingKnop.setEnabled(true);
 			bestellingafrondenKnop.setEnabled(false);
 			totaleomzetKnop.setEnabled(true);
-
-			totaalFrisBier = frisBier + frisBier;
-			totaalWijn = wijn + wijn;
-			totaalKoffieThee = koffieThee + koffieThee;
-			totaalBinnelandsGedist = binnelandsGedist + binnelandsGedist;
-			totaalBuitenlandsGedist = buitenlandsGedist + buitenlandsGedist;
-
-			productwaarde = bedrag * aantalGeklikt;
-			productwaarde += bestellingswaarde;
-			aantalGeklikt = 0;
 			repaint();
 		}
 	}
 
 	class TotaleomzetListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-			totaleomzet = true;
-			aantalFrisBier = true;
-			aantalWijn = true;
-			aantalKoffieThee = true;
-			aantalBinnenlandsGedist = true;
-			aantalBuitenlandsGedist = true;
-
-			drankKiezen = false;
 			nieuweBestelling = false;
-			extraBestelling = false;
-			nieuweBestelling = false;
+			bestellingAfronden = false;
+			totaleOmzet = true;
 
-			productwaarde = bedrag * aantalGeklikt;
-			bestellingswaarde = bestellingswaarde + productwaarde;
-			bestellingswaarde = 0;
-			aantalGeklikt = 0;
+			totaleomzetKnop.setEnabled(false);
 			repaint();
 		}
 	}
