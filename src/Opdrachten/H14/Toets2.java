@@ -35,11 +35,11 @@ public class Toets2 extends Applet {
 		pad = Toets2.class.getResource("/Opdrachten/H14/img/Fruitplaatjes/fruit_1.jpg");
 		afbeeldingFruit1 = getImage(pad, "fruit_1.jpg");
 
-		pad = Toets2.class.getResource("/Opdrachten/H14/img/Fruitplaatjes/fruit_5.jpg");
-		afbeeldingFruit2 = getImage(pad, "fruit_5.jpg");
+		pad = Toets2.class.getResource("/Opdrachten/H14/img/Fruitplaatjes/fruit_2.jpg");
+		afbeeldingFruit2 = getImage(pad, "fruit_2.jpg");
 
-		pad = Toets2.class.getResource("/Opdrachten/H14/img/Fruitplaatjes/fruit_8.jpg");
-		afbeeldingFruit3 = getImage(pad, "fruit_8.jpg");
+		pad = Toets2.class.getResource("/Opdrachten/H14/img/Fruitplaatjes/fruit_3.jpg");
+		afbeeldingFruit3 = getImage(pad, "fruit_3.jpg");
 
 		speelKnop = new Button("Speel");
 		speelKnop.addActionListener( new SpeelKnopListener() );
