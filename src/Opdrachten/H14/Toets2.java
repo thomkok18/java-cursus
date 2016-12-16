@@ -82,17 +82,17 @@ public class Toets2 extends Applet {
 			pad = Toets2.class.getResource("/Opdrachten/H14/img/Fruitplaatjes/fruit_" + speel3 + ".jpg");
 			afbeeldingFruit3 = getImage(pad, "fruit_"+ speel3 +".jpg");
 
-			if (afbeeldingFruit1 == afbeeldingFruit2 && afbeeldingFruit2 == afbeeldingFruit3) {
-				punten = 20;
-				krediet += 20;
-				gewonnen = true;
-				win.play();
-			}
 			if (afbeeldingFruit1 == afbeeldingFruit2 || afbeeldingFruit1 == afbeeldingFruit3 || afbeeldingFruit2 == afbeeldingFruit3) {
 				punten = 4;
 				krediet += 4;
 				gewonnen = true;
 				jackpot.play();
+			}
+			if (afbeeldingFruit1 == afbeeldingFruit2 && afbeeldingFruit2 == afbeeldingFruit3) {
+				punten = 20;
+				krediet += 20;
+				gewonnen = true;
+				win.play();
 			}
 			if (krediet > 1) {
 				krediet--;
