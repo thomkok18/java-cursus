@@ -27,55 +27,54 @@ public class Dobbelstenen extends Applet {
     class GooiKnopLuisteraar implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             double randomWit = Math.random();
-            int worpWit = (int) (randomWit * 5 + 1);
+            int worpWit = (int) (randomWit * 5);
             pad = Dobbelstenen.class.getResource("/Creaties/KleurDobbelstenen/Wit/dobbel" + worpWit + ".jpg");
-            afbeeldingWit = getImage(pad, "dobbel"+ worpWit +".jpg");
+            afbeeldingWit = getImage(pad);
 
             double randomBlauw = Math.random();
-            int worpBlauw = (int) (randomBlauw * 5 + 1);
+            int worpBlauw = (int) (randomBlauw * 6);
             pad = Dobbelstenen.class.getResource("/Creaties/KleurDobbelstenen/Blauw/dobbel" + worpBlauw + ".jpg");
-            afbeeldingBlauw = getImage(pad, "dobbel"+ worpBlauw +".jpg");
+            afbeeldingBlauw = getImage(pad);
 
             double randomGroen = Math.random();
-            int worpGroen = (int) (randomGroen * 5 + 1);
+            int worpGroen = (int) (randomGroen * 6);
             pad = Dobbelstenen.class.getResource("/Creaties/KleurDobbelstenen/Groen/dobbel" + worpGroen + ".jpg");
-            afbeeldingGroen = getImage(pad, "dobbel"+ worpGroen +".jpg");
+            afbeeldingGroen = getImage(pad);
 
             double randomRood = Math.random();
-            int worpRood = (int) (randomRood * 5 + 1);
+            int worpRood = (int) (randomRood * 6);
             pad = Dobbelstenen.class.getResource("/Creaties/KleurDobbelstenen/Rood/dobbel" + worpRood + ".jpg");
-            afbeeldingRood = getImage(pad, "dobbel"+ worpRood +".jpg");
+            afbeeldingRood = getImage(pad);
 
             double randomGeel = Math.random();
-            int worpGeel = (int) (randomGeel * 5 + 1);
+            int worpGeel = (int) (randomGeel * 6);
             pad = Dobbelstenen.class.getResource("/Creaties/KleurDobbelstenen/Geel/dobbel" + worpGeel + ".jpg");
-            afbeeldingGeel = getImage(pad, "dobbel"+ worpGeel +".jpg");
+            afbeeldingGeel = getImage(pad);
 
             double randomOranje = Math.random();
-            int worpOranje = (int) (randomOranje * 5 + 1);
+            int worpOranje = (int) (randomOranje * 6);
             pad = Dobbelstenen.class.getResource("/Creaties/KleurDobbelstenen/Oranje/dobbel" + worpOranje + ".jpg");
-            afbeeldingOranje = getImage(pad, "dobbel"+ worpOranje +".jpg");
+            afbeeldingOranje = getImage(pad);
 
             double randomBruin = Math.random();
-            int worpBruin = (int) (randomBruin * 5 + 1);
+            int worpBruin = (int) (randomBruin * 6);
             pad = Dobbelstenen.class.getResource("/Creaties/KleurDobbelstenen/Bruin/dobbel" + worpBruin + ".jpg");
-            afbeeldingBruin = getImage(pad, "dobbel"+ worpBruin +".jpg");
+            afbeeldingBruin = getImage(pad);
 
             double randomPaars = Math.random();
-            int worpPaars = (int) (randomPaars * 5 + 1);
+            int worpPaars = (int) (randomPaars * 6);
             pad = Dobbelstenen.class.getResource("/Creaties/KleurDobbelstenen/Paars/dobbel" + worpPaars + ".jpg");
-            afbeeldingPaars = getImage(pad, "dobbel"+ worpPaars +".jpg");
+            afbeeldingPaars = getImage(pad);
 
             double randomRoze = Math.random();
-            int worpRoze = (int) (randomRoze * 5 + 1);
+            int worpRoze = (int) (randomRoze * 6);
             pad = Dobbelstenen.class.getResource("/Creaties/KleurDobbelstenen/Roze/dobbel" + worpRoze + ".jpg");
-            afbeeldingRoze = getImage(pad, "dobbel"+ worpRoze +".jpg");
+            afbeeldingRoze = getImage(pad);
 
             double randomGrijs = Math.random();
-            int worpGrijs = (int) (randomGrijs * 5 + 1);
+            int worpGrijs = (int) (randomGrijs * 6);
             pad = Dobbelstenen.class.getResource("/Creaties/KleurDobbelstenen/Grijs/dobbel" + worpGrijs + ".jpg");
-            afbeeldingGrijs = getImage(pad, "dobbel"+ worpGrijs +".jpg");
-
+            afbeeldingGrijs = getImage(pad);
             repaint();
         }
     }

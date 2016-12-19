@@ -27,19 +27,19 @@ public class Toets2 extends Applet {
 		gewonnen = false;
 
 		pad = Toets2.class.getResource("/Opdrachten/H14/Audio/Fruitmachine/jackpot.wav");
-		jackpot = getAudioClip(pad, "jackpot.wav");
+		jackpot = getAudioClip(pad);
 
 		pad = Toets2.class.getResource("/Opdrachten/H14/Audio/Fruitmachine/slot-payoff.wav");
-		win = getAudioClip(pad, "slot-payoff.wav");
+		win = getAudioClip(pad);
+
+		pad = Toets2.class.getResource("/Opdrachten/H14/img/Fruitplaatjes/fruit_0.jpg");
+		afbeeldingFruit1 = getImage(pad);
 
 		pad = Toets2.class.getResource("/Opdrachten/H14/img/Fruitplaatjes/fruit_1.jpg");
-		afbeeldingFruit1 = getImage(pad, "fruit_1.jpg");
+		afbeeldingFruit2 = getImage(pad);
 
 		pad = Toets2.class.getResource("/Opdrachten/H14/img/Fruitplaatjes/fruit_2.jpg");
-		afbeeldingFruit2 = getImage(pad, "fruit_2.jpg");
-
-		pad = Toets2.class.getResource("/Opdrachten/H14/img/Fruitplaatjes/fruit_3.jpg");
-		afbeeldingFruit3 = getImage(pad, "fruit_3.jpg");
+		afbeeldingFruit3 = getImage(pad);
 
 		speelKnop = new Button("Speel");
 		speelKnop.addActionListener( new SpeelKnopListener() );
@@ -68,31 +68,31 @@ public class Toets2 extends Applet {
 			punten = 0;
 
 			double randomFruit1 = Math.random();
-			int speel1 = (int) (randomFruit1 * 20 + 1);
+			int speel1 = (int) (randomFruit1 * 20);
 			pad = Toets2.class.getResource("/Opdrachten/H14/img/Fruitplaatjes/fruit_" + speel1 + ".jpg");
-			afbeeldingFruit1 = getImage(pad, "fruit_"+ speel1 +".jpg");
+			afbeeldingFruit1 = getImage(pad);
 
 			double randomFruit2 = Math.random();
-			int speel2 = (int) (randomFruit2 * 20 + 1);
+			int speel2 = (int) (randomFruit2 * 20);
 			pad = Toets2.class.getResource("/Opdrachten/H14/img/Fruitplaatjes/fruit_" + speel2 + ".jpg");
-			afbeeldingFruit2 = getImage(pad, "fruit_"+ speel2 +".jpg");
+			afbeeldingFruit2 = getImage(pad);
 
 			double randomFruit3 = Math.random();
-			int speel3 = (int) (randomFruit3 * 20 + 1);
+			int speel3 = (int) (randomFruit3 * 20);
 			pad = Toets2.class.getResource("/Opdrachten/H14/img/Fruitplaatjes/fruit_" + speel3 + ".jpg");
-			afbeeldingFruit3 = getImage(pad, "fruit_"+ speel3 +".jpg");
+			afbeeldingFruit3 = getImage(pad);
 
-			if (afbeeldingFruit1 == afbeeldingFruit2 || afbeeldingFruit1 == afbeeldingFruit3 || afbeeldingFruit2 == afbeeldingFruit3) {
-				punten = 4;
-				krediet += 4;
-				gewonnen = true;
-				jackpot.play();
-			}
 			if (afbeeldingFruit1 == afbeeldingFruit2 && afbeeldingFruit2 == afbeeldingFruit3) {
 				punten = 20;
 				krediet += 20;
 				gewonnen = true;
 				win.play();
+			}
+			else if (afbeeldingFruit1 == afbeeldingFruit2 || afbeeldingFruit1 == afbeeldingFruit3 || afbeeldingFruit2 == afbeeldingFruit3) {
+				punten = 4;
+				krediet += 4;
+				gewonnen = true;
+				jackpot.play();
 			}
 			if (krediet > 1) {
 				krediet--;
