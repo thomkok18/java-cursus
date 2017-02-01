@@ -1,5 +1,5 @@
 // Hoofdstuk 1
-package Opdrachten.H1;
+package Opdrachten.Java.H1;
 
 //Importeer de benodigde klassen uit de Java bibliotheek.
 import java.awt.*;

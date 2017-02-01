@@ -1,5 +1,5 @@
 // Hoofdstuk 6
-package Opdrachten.H6;
+package Opdrachten.Java.H6;
 
 // Importeer de benodigde klassen uit de Java bibliotheek.
 import java.awt.*;

@@ -1,5 +1,5 @@
 // Hoofdstuk 10
-package Opdrachten.H10;
+package Opdrachten.Java.H10;
 
 // Importeer de benodigde klassen uit de Java bibliotheek.
 import java.awt.*;

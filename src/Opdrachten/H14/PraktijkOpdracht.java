@@ -1,5 +1,5 @@
 // Hoofdstuk 14
-package Opdrachten.H14;
+package Opdrachten.Java.H14;
 
 // Importeer de benodigde klassen uit de Java bibliotheek.
 import java.applet.Applet;
@@ -38,7 +38,7 @@ public class PraktijkOpdracht extends Applet {
         speelKnop = new Button("      Speel      ");
         speelKnop.addActionListener(new speelKnopLuisteraar());
         add(speelKnop);
-        pad = PraktijkOpdracht.class.getResource("/Opdrachten/H14/img/Smileys/Smiley-Neutraal.png");
+        pad = PraktijkOpdracht.class.getResource("/Opdrachten/Java/H14/img/Smileys/Smiley-Neutraal.png");
         smiley = getImage(pad, "Smiley-Neutraal.png");
     }
 
@@ -48,7 +48,7 @@ public class PraktijkOpdracht extends Applet {
                 if (klaar == true) {
                     // Spel opnieuw starten
                     speelKnop.setLabel("Speel");
-                    pad = PraktijkOpdracht.class.getResource("/Opdrachten/H14/img/Smileys/Smiley-Neutraal.png");
+                    pad = PraktijkOpdracht.class.getResource("/Opdrachten/Java/H14/img/Smileys/Smiley-Neutraal.png");
                     smiley = getImage(pad, "Smiley-Neutraal.png");
                     aantalSmileys = 23;
                     klaar = false;
@@ -64,7 +64,7 @@ public class PraktijkOpdracht extends Applet {
                             if (spelerGetal >= aantalSmileys) {
                                 spelerGetal = aantalSmileys;
                                 computerString = "Ha!!! Je hebt verloren.";
-                                pad = PraktijkOpdracht.class.getResource("/Opdrachten/H14/img/Smileys/Smiley-Win.png");
+                                pad = PraktijkOpdracht.class.getResource("/Opdrachten/Java/H14/img/Smileys/Smiley-Win.png");
                                 smiley = getImage(pad, "Smiley-Win.png");
                                 klaar = true;
                                 start = true;
@@ -77,7 +77,7 @@ public class PraktijkOpdracht extends Applet {
                             if (computerGetal >= aantalSmileys) {
                                 computerGetal = aantalSmileys;
                                 computerString = "Hmmm... je hebt gewonnen.";
-                                pad = PraktijkOpdracht.class.getResource("/Opdrachten/H14/img/Smileys/Smiley-Verloren.png");
+                                pad = PraktijkOpdracht.class.getResource("/Opdrachten/Java/H14/img/Smileys/Smiley-Verloren.png");
                                 smiley = getImage(pad, "Smiley-Verloren.png");
                                 klaar = true;
                                 start = true;
@@ -89,10 +89,10 @@ public class PraktijkOpdracht extends Applet {
                             if (aantalSmileys % 4 == 0 + 1) {
                                 random = Math.random();
                                 computerGetal = new Random().nextInt(3) + 1;
-                                pad = PraktijkOpdracht.class.getResource("/Opdrachten/H14/img/Smileys/Smiley-Neutraal.png");
+                                pad = PraktijkOpdracht.class.getResource("/Opdrachten/Java/H14/img/Smileys/Smiley-Neutraal.png");
                                 smiley = getImage(pad, "Smiley-Neutraal.png");
                             } else {
-                                pad = PraktijkOpdracht.class.getResource("/Opdrachten/H14/img/Smileys/Smiley-Blij.png");
+                                pad = PraktijkOpdracht.class.getResource("/Opdrachten/Java/H14/img/Smileys/Smiley-Blij.png");
                                 smiley = getImage(pad, "Smiley-Blij.png");
                             }
                             if (aantalSmileys % 4 == 0 + 2) {
@@ -110,7 +110,7 @@ public class PraktijkOpdracht extends Applet {
                                 start = false;
                                 computerGetal = 0;
                                 aantalSmileys = 23;
-                                pad = PraktijkOpdracht.class.getResource("/Opdrachten/H14/img/Smileys/Smiley-Neutraal.png");
+                                pad = PraktijkOpdracht.class.getResource("/Opdrachten/Java/H14/img/Smileys/Smiley-Neutraal.png");
                                 smiley = getImage(pad, "Smiley-Neutraal.png");
                             }
                         }

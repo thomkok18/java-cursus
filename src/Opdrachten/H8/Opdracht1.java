@@ -1,5 +1,5 @@
 // Hoofdstuk 8
-package Opdrachten.H8;
+package Opdrachten.Java.H8;
 
 // Importeer de benodigde klassen uit de Java bibliotheek.
 import java.awt.*;
