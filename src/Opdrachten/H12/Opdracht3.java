@@ -1,5 +1,5 @@
 // Hoofdstuk 12
-package Opdrachten.Java.H12;
+package Opdrachten.H12;
 
 //Importeer de benodigde klassen uit de Java bibliotheek.
 import java.applet.*;

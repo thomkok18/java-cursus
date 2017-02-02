@@ -1,5 +1,5 @@
 // Hoofdstuk 13
-package Opdrachten.Java.H13;
+package Opdrachten.H13;
 
 //Importeer de benodigde klassen uit de Java bibliotheek.
 import java.awt.*;

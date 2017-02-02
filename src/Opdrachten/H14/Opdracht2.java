@@ -1,5 +1,5 @@
 // Hoofdstuk 14
-package Opdrachten.Java.H14;
+package Opdrachten.H14;
 
 // Importeer de benodigde klassen uit de Java bibliotheek.
 import java.applet.Applet;
