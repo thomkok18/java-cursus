@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.net.URL;
 
-// Een klasse met de naam Toets1 van het type Applet.
+// Een klasse met de naam Toets2 van het type Applet.
 @SuppressWarnings("serial")
 public class Toets2 extends Applet {
 	Button speelKnop, koopKnop;

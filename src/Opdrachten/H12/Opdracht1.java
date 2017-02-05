@@ -1,4 +1,4 @@
-// Hoofdstuk 11
+// Hoofdstuk 12
 package Opdrachten.H12;
 
 //Importeer de benodigde klassen uit de Java bibliotheek.
