@@ -14,7 +14,7 @@ import java.net.*;
 public class Dobbelstenen extends Applet {
     private Image afbeeldingWit, afbeeldingBlauw, afbeeldingGroen, afbeeldingRood, afbeeldingGeel, afbeeldingOranje, afbeeldingBruin, afbeeldingPaars, afbeeldingRoze, afbeeldingGrijs;
     private URL pad;
-    Button gooiKnop;
+    private Button gooiKnop;
 
     // Een (lege) methode die de Applet gaat initialiseren.
     public void init() {
