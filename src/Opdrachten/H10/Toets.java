@@ -69,6 +69,9 @@ public class Toets extends Applet {
 				if (sydney >= 24){
 					sydney -= 24;
 				}
+				if (cijfer < 0 || cijfer > 24) {
+					foutmelding = true;
+				}
 			} else {
 				foutmelding = true;
 				error = "Voer een geldig getal in.";
