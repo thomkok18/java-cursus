@@ -5,20 +5,22 @@ package Opdrachten.H11;
 import java.awt.*;
 import java.applet.*;
 
-// Een klasse met de naam Opdracht9 van het type Applet.
+// Een klasse met de naam Opdracht8 van het type Applet.
 @SuppressWarnings("serial")
 public class Opdracht8 extends Applet {
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
-		setSize(1200, 1000);
+		setSize(900, 900);
 	}
 
 	// Een methode die de inhoud van het scherm tekent.	
 	public void paint(Graphics g) {
-		int xCoordinaat = 0, yCoordinaat = 0, aantalCirkels = 100, lengte = 10, breedte = 10;
+		int xCoordinaat = 500, yCoordinaat = 500, aantalCirkels = 50, lengte = 10, breedte = 10;
 		for (int teller = 0; teller < aantalCirkels; teller++){
 			g.drawOval(xCoordinaat, yCoordinaat, breedte, lengte);
+			xCoordinaat -= 5;
+			yCoordinaat -= 5;
 			lengte += 10;
 			breedte += 10;
 		}

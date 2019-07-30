@@ -5,7 +5,7 @@ package Opdrachten.H11;
 import java.awt.*;
 import java.applet.*;
 
-// Een klasse met de naam Opdracht7 van het type Applet.
+// Een klasse met de naam Opdracht6 van het type Applet.
 @SuppressWarnings("serial")
 public class Opdracht6 extends Applet {
 
@@ -16,13 +16,11 @@ public class Opdracht6 extends Applet {
 
 	// Een methode die de inhoud van het scherm tekent.	
 	public void paint(Graphics g) {
-		int xCoordinaat = 100, yCoordinaat = 100, aantalCirkels = 5, lengte = 10, breedte = 10;
-		for (int teller = 0; teller < aantalCirkels; teller++){
-			g.drawOval(xCoordinaat, yCoordinaat, breedte, lengte);
-			xCoordinaat -= 10;
-			yCoordinaat -= 10;
-			lengte += 20;
-			breedte += 20;
+		int xCoordinaat = 20, yCoordinaat = 20, aantalVierkanten = 5;
+		for (int vierkantje = 0; vierkantje < aantalVierkanten; vierkantje++){
+			g.drawRect(xCoordinaat, yCoordinaat, 20, 20);
+			xCoordinaat += 20;
+			yCoordinaat += 20;
 		}
 	}
 }
