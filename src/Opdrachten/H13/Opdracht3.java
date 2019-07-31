@@ -9,7 +9,7 @@ import java.awt.event.*;
 //Een klasse met de naam Opdracht3 van het type Applet.
 @SuppressWarnings("serial")
 public class Opdracht3 extends Applet {
-	private Button bakstenenknop;
+	private Button bakstenenknop, betonblokkenknop;
 	int breedtesteen, hoogtesteen, aantalVerticaal, aantalHorizontaal;
 	private int aantalSteenHorizontaal, aantalSteenVerticaal;
 	Color steenkleur, voegKleur;
@@ -21,6 +21,9 @@ public class Opdracht3 extends Applet {
 		bakstenenknop = new Button("Bakstenen");
 		bakstenenknop.addActionListener(new BaksteenLuisteraar());
 		add(bakstenenknop);
+		betonblokkenknop = new Button("Betonblokken");
+		betonblokkenknop.addActionListener(new BetonblokLuisteraar());
+		add(betonblokkenknop);
 		tekenmuur = false;
 		voegKleur = Color.BLACK;
 		repaint();
@@ -52,6 +55,17 @@ public class Opdracht3 extends Applet {
 			aantalSteenHorizontaal = 25;
 			aantalSteenVerticaal = 20;
 			steenkleur = Color.RED;
+			tekenmuur = true;
+			repaint();
+		}
+	}
+	class BetonblokLuisteraar implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			breedtesteen = 60;
+			hoogtesteen = 50;
+			aantalSteenHorizontaal = 15;
+			aantalSteenVerticaal = 10;
+			steenkleur = Color.GRAY;
 			tekenmuur = true;
 			repaint();
 		}

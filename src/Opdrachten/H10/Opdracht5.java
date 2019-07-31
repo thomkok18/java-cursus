@@ -6,54 +6,133 @@ import java.awt.*;
 import java.applet.*;
 import java.awt.event.*;
 
-// Een klasse met de naam Opdracht5 van het type Applet.
+// Een klasse met de naam Opdracht4 van het type Applet.
 @SuppressWarnings("serial")
 public class Opdracht5 extends Applet {
-	TextField Tekstvak;
-	String beoordeling, geslaagd;
+	TextField maandTekstvak, jaarTekstvak;
 	Button okKnop;
-	double getal, cijfer, gemiddelde;
-	int aantalCijfers;
+	int maand, jaartal;
+	String dagen, maandNaam, schrikkeljaar, error;
+	Label maandLabel, jaarLabel;
+	boolean foutmelding;
 
 	// Een (lege) methode die de Applet gaat initialiseren.
 	public void init() {
-		setSize(600, 500);
+		maand = 0;
+		jaartal = 0;
+		dagen = "";
+		maandNaam = "";
+		schrikkeljaar = "";
+		error = "";
+		setSize(900, 150);
+		maandLabel = new Label("Voer het maandgetal in");
+		add(maandLabel);
+		maandTekstvak = new TextField("", 30);
+		add(maandTekstvak);
+		jaarLabel = new Label("Voer het jaar in");
+		add(jaarLabel);
+		jaarTekstvak = new TextField("", 30);
+		add(jaarTekstvak);
 		okKnop = new Button("Ok");
 		okKnop.addActionListener( new OkKnopListener() );
 		add(okKnop);
-		Tekstvak = new TextField("", 20);
-		add(Tekstvak);
 	}
 
-	// Een methode die de inhoud van het scherm tekent.	
+	// Een methode die de inhoud van het scherm tekent.
 	public void paint(Graphics g) {
-		g.drawString(beoordeling, 50, 60 );
-		g.drawString(geslaagd, 50, 80 );
-
+		if (foutmelding == false) {
+			g.drawString("Maand: " + maandNaam, 50, 60 );
+			g.drawString("Schrikkeljaar: " + schrikkeljaar, 50, 80 );
+			g.drawString("Aantal dagen: " + dagen, 50, 100 );
+		} else {
+			g.drawString("" + error, 50, 60 );
+			foutmelding = false;
+		}
 	}
-
 	class OkKnopListener implements ActionListener	{
 		public void actionPerformed( ActionEvent e ) {
-			cijfer = Double.parseDouble(Tekstvak.getText());
-			aantalCijfers++;
-			getal =  cijfer + getal;
-			gemiddelde = getal / aantalCijfers;
-			Tekstvak.setText("");
-			if (gemiddelde > 5.5){
-				geslaagd = gemiddelde + " Je bent geslaagd!";
+			String jaarTekstvakGetal = jaarTekstvak.getText();
+			jaartal = Integer.parseInt(jaarTekstvakGetal);
+			String maandTekstvakGetal = maandTekstvak.getText();
+			maand = Integer.parseInt(maandTekstvakGetal);
+			switch(maand) {
+				case 1:
+					maandNaam = "januari";
+					dagen = "31";
+					break;
+				case 2:
+					if ((jaartal % 4 == 0 && !(jaartal % 100 == 0)) ||
+							jaartal % 400 == 0) {
+						maandNaam = "februari";
+						dagen = "29";
+					} else {
+						maandNaam = "februari";
+						dagen = "28";
+					}
+					break;
+				case 3:
+					maandNaam = "maart";
+					dagen = "31";
+					break;
+				case 4:
+					maandNaam = "april";
+					dagen = "30";
+					break;
+				case 5:
+					maandNaam = "mei";
+					dagen = "31";
+					break;
+				case 6:
+					maandNaam = "juni";
+					dagen = "30";
+					break;
+				case 7:
+					maandNaam = "juli";
+					dagen = "31";
+					break;
+				case 8:
+					maandNaam = "augustus";
+					dagen = "30";
+					break;
+				case 9:
+					maandNaam = "september";
+					dagen = "31";
+					break;
+				case 10:
+					maandNaam = "oktober";
+					dagen = "30";
+					break;
+				case 11:
+					maandNaam = "november";
+					dagen = "31";
+					break;
+				case 12:
+					maandNaam = "december";
+					dagen = "30";
+					break;
+				default:
+					foutmelding = true;
+					error = "U hebt een verkeerd nummer ingetikt!";
+					dagen = "0";
+					break;
 			}
-			if (gemiddelde < 5.5){
-				geslaagd = gemiddelde + " Je bent gezakt.";
+			if ( (jaartal % 4 == 0 && !(jaartal % 100 == 0)) ||
+					jaartal % 400 == 0 ) {
+				schrikkeljaar = "" + jaartal + " is een schrikkeljaar";
+				if (maand == 2) {
+					maandNaam = "februari";
+					dagen = "29";
+				}
 			}
-			if (cijfer > 5.5){
-				beoordeling = cijfer + " Voldoende";
+			else {
+				schrikkeljaar = "" + jaartal + " is geen schrikkeljaar";
+				if (maand == 2) {
+					maandNaam = "februari";
+					dagen = "28";
+				}
 			}
-			if (cijfer < 5.5){
-				beoordeling = cijfer + " Onvoldoende";
-			}
-			if (cijfer > 10){
-				cijfer = 10;
-			}
+			jaarTekstvak.setText("");
+			maandTekstvak.setText("");
 			repaint();
 		}
 	}
