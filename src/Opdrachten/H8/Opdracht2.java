@@ -57,7 +57,6 @@ public class Opdracht2 extends Applet {
 		public void actionPerformed(ActionEvent e) {
 			totaalMan++;
 			totaalBezoekers++;
-			totaalJongen++;
 			repaint();
 		}
 	}
@@ -66,7 +65,6 @@ public class Opdracht2 extends Applet {
 		public void actionPerformed(ActionEvent e) {
 			totaalVrouw++;
 			totaalBezoekers++;
-			totaalMeisje++;
 			repaint();
 		}
 	}
