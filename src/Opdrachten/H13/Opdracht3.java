@@ -30,7 +30,9 @@ public class Opdracht3 extends Applet {
 	}
 
 	// Een methode die de inhoud van het scherm tekent.	
-	public void paint(Graphics g){
+	public void paint(Graphics g){ tekenMuur(g); }
+
+	public void tekenMuur(Graphics g) {
 		int x = 50;
 		int y = 50;
 		if (tekenmuur){
