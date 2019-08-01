@@ -182,4 +182,3 @@ public class PraktijkOpdracht extends Applet {
         }
     }
 }
-test
